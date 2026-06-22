@@ -41,7 +41,7 @@ export default function Home() {
   ];
 
   const categories: Category[] = [
-    { title: "Woven Labels", desc: "Pre-folded, starched damask with high-density threads.", image: "🧵" },
+    { title: "Woven Labels", desc: "Pre-folded, starched with high-density threads.", image: "🧵" },
     { title: "Printed Labels", desc: "Ideal for precision gradients, artwork, and care instructions.", image: "🏷️" },
     { title: "Laser Cut Labels", desc: "Luxurious cardstock and vellum layers to set your brand apart.", image: "🎫" },
     { title: "Woven Badges", desc: "In-stock, ready-to-ship garment sizing labels.", image: "📐" },
@@ -163,7 +163,7 @@ export default function Home() {
               Beautifully Woven <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-800 block sm:inline">Labels &amp; Tags</span> for Modern Brands.
             </h1>
             <p className="text-lg text-stone-600 max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
-                From a single sample to full production runs — premium damask weaves, soft cotton prints, and laser-cut trims, finished and delivered with care.
+                From a single sample to full production runs — premium weaves, soft cotton prints, and laser-cut trims, finished and delivered with care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a href="#quote" className="bg-teal-700 text-stone-50 px-8 py-4 rounded-xl hover:bg-teal-800 font-bold tracking-wide text-sm shadow-xl shadow-teal-700/20 text-center transition-all hover:-translate-y-0.5">
@@ -177,25 +177,68 @@ export default function Home() {
 
           <div className="lg:col-span-5 relative flex justify-center items-center">
             {/* Elegant Stacked Label Simulation */}
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 bg-white rounded-2xl border-t-4 border-amber-400 p-6 shadow-2xl shadow-teal-900/10 flex flex-col justify-between transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-              <div className="flex justify-between items-start">
-                <span className="text-xs uppercase tracking-widest font-mono text-stone-400">High Density</span>
-                <span className="text-[10px] font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded uppercase">DAMASK TRIMS</span>
-              </div>
-              <div className="my-auto text-center">
-                <div className="text-3xl font-black tracking-widest mb-1 text-teal-800">SANGEETHA</div>
-                <div className="text-[10px] uppercase tracking-widest font-medium text-stone-400">Premium Quality • Made with Care</div>
-              </div>
-              <div className="border-t border-dashed border-stone-300 pt-4 flex justify-between text-[11px] font-mono text-stone-400">
-                <span>SIZE: L</span>
-                <span>REG. ID #88492</span>
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 group">
+
+              {/* Soft glow behind the stack */}
+              <div className="absolute inset-0 -m-6 bg-gradient-to-tr from-teal-200/40 via-amber-100/30 to-transparent rounded-[2rem] blur-2xl" aria-hidden="true"></div>
+
+              {/* Back depth layer */}
+              <div className="absolute inset-0 bg-stone-200/70 rounded-2xl transform rotate-[10deg] scale-90 shadow-lg" aria-hidden="true"></div>
+
+              {/* Overlapping deep teal woven label */}
+              <div className="absolute inset-0 bg-teal-800 text-white rounded-2xl p-6 shadow-xl flex flex-col justify-between transform rotate-6 scale-95 opacity-95 border-b-4 border-amber-400 overflow-hidden">
+                {/* Woven thread texture */}
+                <div className="absolute inset-0 opacity-20 bg-[repeating-linear-gradient(45deg,#fff_0,#fff_1px,transparent_1px,transparent_5px)]" aria-hidden="true"></div>
+                <div className="relative text-right text-[9px] tracking-widest text-amber-300 uppercase font-bold">Luxe Collection</div>
+                <div className="relative text-xl font-black tracking-tight text-center text-stone-100">SANGEETHA LUXE</div>
+                <div className="relative text-[9px] text-center text-teal-100/80">100% ORGANIC COTTON BASE</div>
               </div>
 
-              {/* Overlapping deep teal visual label */}
-              <div className="absolute -z-10 top-6 left-8 w-full h-full bg-teal-800 text-white rounded-2xl p-6 shadow-xl flex flex-col justify-between transform rotate-6 scale-95 opacity-95 border-b-4 border-amber-400">
-                <div className="text-right text-[9px] tracking-widest text-amber-300 uppercase font-bold">Luxe Collection</div>
-                <div className="text-xl font-black tracking-tight text-center text-stone-100">SANGEETHA LUXE</div>
-                <div className="text-[9px] text-center text-teal-100/80">100% ORGANIC COTTON BASE</div>
+              {/* Front woven label with weave texture, stitching & barcode */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white to-stone-50 rounded-2xl shadow-2xl shadow-teal-900/20 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500 overflow-hidden">
+
+                {/* Subtle woven fabric weave */}
+                <div className="absolute inset-0 opacity-[0.04] bg-[repeating-linear-gradient(0deg,#0f766e_0,#0f766e_1px,transparent_1px,transparent_4px),repeating-linear-gradient(90deg,#0f766e_0,#0f766e_1px,transparent_1px,transparent_4px)]" aria-hidden="true"></div>
+
+                {/* Top accent weave bar */}
+                <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-amber-400 to-teal-500" aria-hidden="true"></div>
+
+                {/* Stitched inner border */}
+                <div className="absolute inset-3 top-5 border-2 border-dashed border-stone-300/70 rounded-xl pointer-events-none" aria-hidden="true"></div>
+
+                <div className="relative h-[calc(100%-0.5rem)] p-6 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <span className="text-xs uppercase tracking-widest font-mono text-stone-400">High Density</span>
+                    <span className="text-[10px] font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded uppercase">PREMIUM TRIMS</span>
+                  </div>
+                  <div className="my-auto text-center">
+                    <div className="text-3xl font-black tracking-widest mb-1 text-teal-800">SANGEETHA</div>
+                    <div className="text-[10px] uppercase tracking-widest font-medium text-stone-400">Premium Quality • Made with Care</div>
+                  </div>
+                  <div className="border-t border-dashed border-stone-300 pt-4 flex justify-between items-end text-[11px] font-mono text-stone-400">
+                    <div>
+                      <div>SIZE: L</div>
+                      <div className="mt-0.5">#88492</div>
+                    </div>
+                    {/* Mini barcode */}
+                    <div className="flex items-end gap-[2px] h-7" aria-hidden="true">
+                      {[3,7,2,6,4,7,1,5,3,6,2,7,4].map((h, i) => (
+                        <span key={i} className="w-[2px] bg-stone-700" style={{ height: `${h * 4}px` }}></span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hang loop ring at top */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 w-5 h-5 rounded-full border-[3px] border-amber-400 bg-stone-50" aria-hidden="true"></div>
+
+              {/* Floating accent chips */}
+              <div className="absolute -left-4 top-12 z-20 bg-white rounded-xl shadow-lg px-3 py-2 text-[10px] font-bold text-teal-800 flex items-center gap-1.5 border border-stone-100 transform -rotate-3 group-hover:-translate-y-1 transition-transform duration-500" aria-hidden="true">
+                <span className="text-amber-500">✦</span> Eco Cotton
+              </div>
+              <div className="absolute -right-3 bottom-10 z-20 bg-teal-700 rounded-xl shadow-lg px-3 py-2 text-[10px] font-bold text-white flex items-center gap-1.5 transform rotate-3 group-hover:translate-y-1 transition-transform duration-500" aria-hidden="true">
+                ✓ Loom Tested
               </div>
             </div>
           </div>
@@ -354,7 +397,7 @@ export default function Home() {
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Label Type Requested</label>
                 <select className="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-teal-600 focus:ring-2 focus:ring-teal-600/10 transition-all text-stone-700">
-                  <option>Damask Woven Labels</option>
+                  <option>Woven Labels</option>
                   <option>Heat Fusing Woven Labels</option>
                   <option>Laser Cut Trim Tags</option>
                   <option>Custom Woven Badges</option>
