@@ -211,8 +211,17 @@ export default function Home() {
                     <span className="text-xs uppercase tracking-widest font-mono text-stone-400">High Density</span>
                     <span className="text-[10px] font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded uppercase">PREMIUM TRIMS</span>
                   </div>
-                  <div className="my-auto text-center">
-                    <div className="text-3xl font-black tracking-widest mb-1 text-teal-800">SANGEETHA</div>
+                  {/* Woven label swatch photo */}
+                  <div className="my-3 rounded-lg overflow-hidden ring-1 ring-stone-200 shadow-inner">
+                    <img
+                      src="https://images.unsplash.com/photo-1606293459339-aa5d34a7b0e1?auto=format&fit=crop&w=400&q=80"
+                      alt="Close-up of premium woven clothing labels"
+                      className="w-full h-20 object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-black tracking-widest mb-1 text-teal-800">SANGEETHA</div>
                     <div className="text-[10px] uppercase tracking-widest font-medium text-stone-400">Premium Quality • Made with Care</div>
                   </div>
                   <div className="border-t border-dashed border-stone-300 pt-4 flex justify-between items-end text-[11px] font-mono text-stone-400">
