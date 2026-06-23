@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 
 interface Product {
   id: number;
@@ -33,6 +33,15 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState<boolean>(false);
 
+  // Set the browser tab icon dynamically
+  useEffect(() => {
+    const link: HTMLLinkElement = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/png';
+    link.rel = 'shortcut icon';
+    link.href = '/icons/favicon-32x32.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }, []);
+
   const popularProducts: Product[] = [
     { id: 1, name: "Letter Size Woven Labels - Bright White", desc: "P, XXS-6XL, 6X available", price: "7.50" },
     { id: 2, name: "MADE IN USA FLAG Clothing Labels", desc: "High-density premium black weave", price: "15.00" },
@@ -54,7 +63,6 @@ export default function Home() {
     { value: "Free", label: "Sample on request" },
   ];
 
-  // The 4-Step Process using exact Cruz Label wording and matching imagery assets
   const orderSteps: Step[] = [
     {
       num: "01",
@@ -92,6 +100,10 @@ export default function Home() {
     setTimeout(() => setQuoteSubmitted(false), 5000);
   };
 
+  const scrollToTop = (): void => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-700 font-sans selection:bg-teal-700 selection:text-stone-50">
 
@@ -102,15 +114,22 @@ export default function Home() {
 
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="#" className="text-2xl font-black tracking-tighter flex items-center gap-1.5">
-                <span className="text-teal-800">SANGEETHA</span>
-                <span className="text-amber-600 font-medium tracking-normal text-xl">LABEL</span>
+              <a href="#" className="text-2xl font-black tracking-tighter flex items-center gap-2">
+                <img 
+                  src="/icons/apple-touch-icon.png" 
+                  alt="Sangeetha Logo" 
+                  className="w-8 h-8 object-contain rounded-md"
+                />
+                <div className="flex items-baseline gap-1">
+                  <span className="text-teal-800">SANGEETHA</span>
+                  <span className="text-amber-600 font-medium tracking-normal text-xl">LABEL</span>
+                </div>
               </a>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6 items-center font-semibold text-sm text-stone-500 tracking-wide">
-              <a href="#categories" className="hover:text-teal-700 transition-colors">Wovend Labels</a>
+              <a href="#categories" className="hover:text-teal-700 transition-colors">Woven Labels</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Heat Fusing</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Laser Cut</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Woven Badges</a>
@@ -176,34 +195,20 @@ export default function Home() {
           </div>
 
           <div className="lg:col-span-5 relative flex justify-center items-center">
-            {/* Elegant Stacked Label Simulation */}
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 group">
-
-              {/* Soft glow behind the stack */}
               <div className="absolute inset-0 -m-6 bg-gradient-to-tr from-teal-200/40 via-amber-100/30 to-transparent rounded-[2rem] blur-2xl" aria-hidden="true"></div>
-
-              {/* Back depth layer */}
               <div className="absolute inset-0 bg-stone-200/70 rounded-2xl transform rotate-[10deg] scale-90 shadow-lg" aria-hidden="true"></div>
 
-              {/* Overlapping deep teal woven label */}
               <div className="absolute inset-0 bg-teal-800 text-white rounded-2xl p-6 shadow-xl flex flex-col justify-between transform rotate-6 scale-95 opacity-95 border-b-4 border-amber-400 overflow-hidden">
-                {/* Woven thread texture */}
                 <div className="absolute inset-0 opacity-20 bg-[repeating-linear-gradient(45deg,#fff_0,#fff_1px,transparent_1px,transparent_5px)]" aria-hidden="true"></div>
                 <div className="relative text-right text-[9px] tracking-widest text-amber-300 uppercase font-bold">Luxe Collection</div>
                 <div className="relative text-xl font-black tracking-tight text-center text-stone-100">SANGEETHA LUXE</div>
                 <div className="relative text-[9px] text-center text-teal-100/80">100% ORGANIC COTTON BASE</div>
               </div>
 
-              {/* Front woven label with weave texture, stitching & barcode */}
               <div className="absolute inset-0 bg-gradient-to-br from-white to-stone-50 rounded-2xl shadow-2xl shadow-teal-900/20 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500 overflow-hidden">
-
-                {/* Subtle woven fabric weave */}
                 <div className="absolute inset-0 opacity-[0.04] bg-[repeating-linear-gradient(0deg,#0f766e_0,#0f766e_1px,transparent_1px,transparent_4px),repeating-linear-gradient(90deg,#0f766e_0,#0f766e_1px,transparent_1px,transparent_4px)]" aria-hidden="true"></div>
-
-                {/* Top accent weave bar */}
                 <div className="h-2 w-full bg-gradient-to-r from-amber-300 via-amber-400 to-teal-500" aria-hidden="true"></div>
-
-                {/* Stitched inner border */}
                 <div className="absolute inset-3 top-5 border-2 border-dashed border-stone-300/70 rounded-xl pointer-events-none" aria-hidden="true"></div>
 
                 <div className="relative h-[calc(100%-0.5rem)] p-6 flex flex-col justify-between">
@@ -211,7 +216,6 @@ export default function Home() {
                     <span className="text-xs uppercase tracking-widest font-mono text-stone-400">High Density</span>
                     <span className="text-[10px] font-bold text-amber-800 bg-amber-100/70 px-2 py-0.5 rounded uppercase">PREMIUM TRIMS</span>
                   </div>
-                  {/* Woven label swatch photo */}
                   <div className="my-3 rounded-lg overflow-hidden ring-1 ring-stone-200 shadow-inner">
                     <img
                       src="https://images.unsplash.com/photo-1606293459339-aa5d34a7b0e1?auto=format&fit=crop&w=400&q=80"
@@ -229,7 +233,6 @@ export default function Home() {
                       <div>SIZE: L</div>
                       <div className="mt-0.5">#88492</div>
                     </div>
-                    {/* Mini barcode */}
                     <div className="flex items-end gap-[2px] h-7" aria-hidden="true">
                       {[3,7,2,6,4,7,1,5,3,6,2,7,4].map((h, i) => (
                         <span key={i} className="w-[2px] bg-stone-700" style={{ height: `${h * 4}px` }}></span>
@@ -239,10 +242,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Hang loop ring at top */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 w-5 h-5 rounded-full border-[3px] border-amber-400 bg-stone-50" aria-hidden="true"></div>
-
-              {/* Floating accent chips */}
               <div className="absolute -left-4 top-12 z-20 bg-white rounded-xl shadow-lg px-3 py-2 text-[10px] font-bold text-teal-800 flex items-center gap-1.5 border border-stone-100 transform -rotate-3 group-hover:-translate-y-1 transition-transform duration-500" aria-hidden="true">
                 <span className="text-amber-500">✦</span> Eco Cotton
               </div>
@@ -251,7 +251,7 @@ export default function Home() {
 
         </div>
 
-        {/* Trust / Stats strip */}
+        {/* Stats Strip */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-16 lg:mt-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-stone-200/70 rounded-2xl overflow-hidden border border-stone-200/70 shadow-sm">
             {stats.map((stat, idx) => (
@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Categories Grid Section */}
+      {/* Categories Section */}
       <section id="categories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-amber-700 font-bold uppercase text-xs tracking-[0.2em] block mb-3">What We Make</span>
@@ -275,14 +275,10 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((cat, idx) => (
             <div key={idx} className="relative bg-white p-8 rounded-2xl border border-stone-200/70 shadow-sm shadow-stone-200/50 hover:shadow-md hover:shadow-teal-900/5 transition-all hover:-translate-y-1.5 group overflow-hidden">
-              {/* Large ghosted index watermark */}
               <span className="absolute -top-2 right-3 text-[5rem] leading-none font-black text-stone-900/[0.03] group-hover:text-teal-700/[0.06] transition-colors select-none pointer-events-none" aria-hidden="true">{String(idx + 1).padStart(2, "0")}</span>
-
-              {/* Soft gradient ring framing the icon */}
               <div className="relative inline-block mb-6 rounded-2xl p-[2px] bg-gradient-to-br from-amber-300/70 via-teal-300/30 to-teal-500/20 group-hover:from-amber-400 group-hover:via-amber-300/60 group-hover:to-teal-400 transition-all duration-300">
                 <div className="text-4xl bg-stone-100 p-3 rounded-[14px] group-hover:scale-110 transition-transform duration-300">{cat.image}</div>
               </div>
-
               <h3 className="relative text-lg font-bold text-stone-900 mb-2 group-hover:text-teal-700 transition-colors">{cat.title}</h3>
               <p className="relative text-stone-600 text-sm leading-relaxed">{cat.desc}</p>
             </div>
@@ -290,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROCESS SECTION: Updated 4-Step Process with Cloned Image Elements */}
+      {/* Process Section */}
       <section className="bg-teal-800 text-white py-24 border-y border-teal-700/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(#5eead4_1px,transparent_1px)] [background-size:18px_18px] opacity-[0.08]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -302,16 +298,13 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-            {/* Connecting progress line spanning the row (desktop only) */}
             <div className="hidden lg:block absolute top-[88px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-amber-300/40 to-transparent" aria-hidden="true"></div>
 
             {orderSteps.map((step, idx) => (
               <div key={idx} className="bg-teal-700/30 border border-teal-600/50 rounded-2xl p-6 pt-8 relative flex flex-col justify-between group hover:border-amber-300/60 hover:bg-teal-700/50 hover:-translate-y-1.5 transition-all duration-300 text-center overflow-hidden">
-                {/* Large ghosted step number watermark */}
                 <span className="absolute -top-3 right-2 text-[5.5rem] leading-none font-black text-white/[0.05] group-hover:text-amber-300/[0.09] transition-colors select-none pointer-events-none" aria-hidden="true">{step.num}</span>
 
                 <div className="relative">
-                  {/* Soft gold gradient ring framing the image */}
                   <div className="w-32 h-32 mx-auto mb-6 rounded-full p-[3px] bg-gradient-to-br from-amber-300 via-amber-200/40 to-teal-500/40 group-hover:from-amber-200 group-hover:via-amber-300 group-hover:to-amber-400 transition-all duration-300 shadow-lg shadow-teal-900/40 relative z-10">
                     <div className="w-full h-full bg-white rounded-full overflow-hidden p-1">
                       <img
@@ -337,7 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular Products Grid */}
+      {/* Popular Products */}
       <section id="products" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
           <div>
@@ -376,7 +369,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Custom Quote Form Section */}
+      {/* Custom Quote Form */}
       <section id="quote" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white rounded-3xl border border-stone-200 p-8 sm:p-12 shadow-2xl shadow-teal-900/10 relative">
           <div className="absolute top-0 right-12 transform -translate-y-1/2 bg-amber-400 text-teal-900 font-bold text-xs uppercase px-4 py-1.5 rounded-full shadow">
@@ -434,13 +427,20 @@ export default function Home() {
       </section>
 
       {/* Footer / About Us */}
-      <footer className="bg-teal-900 text-teal-100/70 pt-16 pb-12 border-t border-teal-800">
+      <footer className="bg-teal-900 text-teal-100/70 pt-16 pb-12 border-t border-teal-800 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-teal-800">
 
           <div className="lg:col-span-5">
-            <div className="text-xl font-black tracking-tight mb-4">
-              <span className="text-stone-50">SANGEETHA</span>
-              <span className="text-amber-400 font-light"> LABEL</span>
+            <div className="text-xl font-black tracking-tight mb-4 flex items-center gap-2">
+              <img 
+                src="/icons/apple-touch-icon.png" 
+                alt="Sangeetha Logo" 
+                className="w-6 h-6 object-contain rounded brightness-125"
+              />
+              <div>
+                <span className="text-stone-50">SANGEETHA</span>
+                <span className="text-amber-400 font-light"> LABEL</span>
+              </div>
             </div>
             <p className="text-sm text-teal-100/70 leading-relaxed max-w-sm mb-6">
               A specialist textile supplier of custom clothing tags and trims. We weave physical loom samples for every order, so the quality you approve is the quality you receive.
@@ -472,9 +472,26 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium">
-          <div>&copy; {new Date().getFullYear()} Sangeetha Label. All rights reserved.</div>
-          <div className="flex gap-6">
+        {/* Back to Top Icon Trigger in Center of Bottom Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-medium relative">
+          <div className="order-2 sm:order-1">&copy; {new Date().getFullYear()} Sangeetha Label. All rights reserved.</div>
+          
+          {/* Centered Scroll to Top Button Action */}
+          <div className="order-1 sm:order-2 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+            <button 
+              onClick={scrollToTop}
+              title="Scroll to Top"
+              className="group flex flex-col items-center gap-1.5 focus:outline-none bg-teal-800/80 hover:bg-amber-400 p-2.5 rounded-full transition-all duration-300 shadow-md border border-teal-700/50 hover:border-amber-300"
+            >
+              <img 
+                src="/icons/apple-touch-icon.png" 
+                alt="Scroll to top" 
+                className="w-7 h-7 object-contain group-hover:scale-110 group-hover:brightness-50 transition-all duration-300"
+              />
+            </button>
+          </div>
+
+          <div className="flex gap-6 order-3">
             <a href="#" className="hover:text-amber-300 transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-amber-300 transition-colors">Terms of Service</a>
           </div>
