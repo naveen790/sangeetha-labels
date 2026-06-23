@@ -110,7 +110,7 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6 items-center font-semibold text-sm text-stone-500 tracking-wide">
-              <a href="#categories" className="hover:text-teal-700 transition-colors">Woven Labels</a>
+              <a href="#categories" className="hover:text-teal-700 transition-colors">Wovend Labels</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Heat Fusing</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Laser Cut</a>
               <a href="#categories" className="hover:text-teal-700 transition-colors">Woven Badges</a>
@@ -245,9 +245,6 @@ export default function Home() {
               {/* Floating accent chips */}
               <div className="absolute -left-4 top-12 z-20 bg-white rounded-xl shadow-lg px-3 py-2 text-[10px] font-bold text-teal-800 flex items-center gap-1.5 border border-stone-100 transform -rotate-3 group-hover:-translate-y-1 transition-transform duration-500" aria-hidden="true">
                 <span className="text-amber-500">✦</span> Eco Cotton
-              </div>
-              <div className="absolute -right-3 bottom-10 z-20 bg-teal-700 rounded-xl shadow-lg px-3 py-2 text-[10px] font-bold text-white flex items-center gap-1.5 transform rotate-3 group-hover:translate-y-1 transition-transform duration-500" aria-hidden="true">
-                ✓ Loom Tested
               </div>
             </div>
           </div>
@@ -443,7 +440,7 @@ export default function Home() {
           <div className="lg:col-span-5">
             <div className="text-xl font-black tracking-tight mb-4">
               <span className="text-stone-50">SANGEETHA</span>
-              <span className="text-amber-400 font-light">LABEL</span>
+              <span className="text-amber-400 font-light"> LABEL</span>
             </div>
             <p className="text-sm text-teal-100/70 leading-relaxed max-w-sm mb-6">
               A specialist textile supplier of custom clothing tags and trims. We weave physical loom samples for every order, so the quality you approve is the quality you receive.
