@@ -83,23 +83,23 @@ const products: Product[] = [
 const steps: Step[] = [
   {
     number: "01",
-    title: "Submit Specs",
-    description: "Send artwork, dimensions, fold type, backing, quantity, and delivery timing.",
+    title: "Get Quote",
+    description: "Share label type, size, quantity, artwork, and finish requirements for a clear production estimate.",
   },
   {
     number: "02",
-    title: "Approve Sample",
-    description: "Review a digital proof and physical sample before production begins.",
+    title: "Artwork Review",
+    description: "We check your file, refine the technical details, and prepare the label layout for sampling.",
   },
   {
     number: "03",
-    title: "Production",
-    description: "Your trims are woven, printed, cut, folded, and quality checked in batches.",
+    title: "Sample Approval",
+    description: "Approve the digital or physical sample so color, texture, fold, and finishing are locked before bulk work.",
   },
   {
     number: "04",
-    title: "Delivered",
-    description: "Finished labels are packed cleanly for your studio, factory, or fulfilment floor.",
+    title: "Bulk Production",
+    description: "Your labels move into production, quality checking, packing, and dispatch for your brand or factory.",
   },
 ];
 
@@ -123,12 +123,8 @@ export default function Home() {
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <main className="min-h-screen bg-[#f4f0e8] text-[#1a1716] selection:bg-[#24181d] selection:text-[#f4f0e8]">
-      <div className="bg-[#24181d] px-4 py-2 text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-[#d9bd7f]">
-        Custom woven, printed, heat transfer, and premium garment trims
-      </div>
-
-      <nav className="sticky top-0 z-50 border-b border-[#1a1716]/10 bg-[#f4f0e8]/92 backdrop-blur-xl">
+    <main className="min-h-screen bg-[#f7f3ec] text-[#24272b] selection:bg-[#8f2638] selection:text-[#fbf7ef]">
+      <nav className="sticky top-0 z-50 border-b border-[#24272b]/10 bg-[#f7f3ec]/92 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-3" aria-label="Sangeetha Labels home">
             <Image
@@ -139,10 +135,10 @@ export default function Home() {
               className="rounded-full border border-[#b9975b]/60 bg-white object-contain p-1"
             />
             <span className="leading-none">
-              <span className="block text-lg font-black uppercase tracking-[0.18em] text-[#24181d]">
+              <span className="block font-serif text-xl font-semibold tracking-[0.08em] text-[#343a40]">
                 Sangeetha
               </span>
-              <span className="block text-[11px] font-semibold uppercase tracking-[0.34em] text-[#8f2638]">
+              <span className="block text-[10px] font-semibold uppercase tracking-[0.36em] text-[#8f2638]">
                 Labels
               </span>
             </span>
@@ -161,18 +157,12 @@ export default function Home() {
             <a href="#quote" className="transition hover:text-[#8f2638]">
               Quote
             </a>
-            <a
-              href="#quote"
-              className="rounded-full bg-[#24181d] px-5 py-3 text-[#f4f0e8] shadow-lg shadow-[#24181d]/15 transition hover:bg-[#3a202a]"
-            >
-              Start Project
-            </a>
           </div>
 
           <button
             type="button"
             onClick={() => setMobileMenuOpen((open) => !open)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#1a1716]/15 text-[#24181d] md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#24272b]/15 text-[#343a40] md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -186,7 +176,7 @@ export default function Home() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="border-t border-[#1a1716]/10 bg-[#f4f0e8] px-4 py-5 md:hidden">
+          <div className="border-t border-[#24272b]/10 bg-[#f7f3ec] px-4 py-5 md:hidden">
             <div className="mx-auto grid max-w-7xl gap-2 text-sm font-semibold text-[#3a3430]">
               <a onClick={closeMenu} href="#categories" className="py-3">
                 Labels
@@ -197,8 +187,8 @@ export default function Home() {
               <a onClick={closeMenu} href="#products" className="py-3">
                 Stock
               </a>
-              <a onClick={closeMenu} href="#quote" className="mt-2 rounded-full bg-[#24181d] px-5 py-3 text-center text-[#f4f0e8]">
-                Start Project
+              <a onClick={closeMenu} href="#quote" className="py-3">
+                Quote
               </a>
             </div>
           </div>
@@ -206,7 +196,7 @@ export default function Home() {
       </nav>
 
       <header className="relative min-h-[820px] overflow-hidden">
-        <div className="absolute inset-0 bg-[#151112]" aria-hidden="true">
+        <div className="absolute inset-0 bg-[#343a40]" aria-hidden="true">
           {introBackgroundRows.map((row, rowIndex) => (
             <div
               key={rowIndex}
@@ -229,26 +219,22 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,28,24,0.94),rgba(20,28,24,0.76),rgba(20,28,24,0.42))]" />
-        <div className="absolute inset-0 bg-[#24181d]/20 backdrop-blur-[1px]" />
-        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#f4f0e8] to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,39,43,0.9),rgba(52,58,64,0.68),rgba(143,38,56,0.22))]" />
+        <div className="absolute inset-0 bg-[#343a40]/10 backdrop-blur-[1px]" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#f7f3ec] to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[820px] max-w-7xl items-center px-4 py-24 sm:px-6 lg:px-8">
           <div className="max-w-3xl pt-8 text-[#fbf7ef]">
-            <p className="mb-5 text-[12px] font-bold uppercase tracking-[0.28em] text-[#d9bd7f]">
-              Premium clothing labels for considered brands
-            </p>
-            <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[0.98] tracking-normal sm:text-7xl lg:text-8xl">
+            <h1 className="max-w-4xl font-serif text-5xl font-medium leading-[0.98] tracking-[0.02em] sm:text-7xl lg:text-8xl">
               Sangeetha Labels
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-[#fbf7ef]/82 sm:text-lg">
-              Custom woven labels, cotton prints, heat transfers, hang tags, and patches made with refined
-              materials, precise finishing, and a sample-first production process.
+              Premium, durable custom clothing labels crafted to elevate your brand.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#quote"
-                className="rounded-full bg-[#c9a45c] px-7 py-4 text-center text-[12px] font-black uppercase tracking-[0.2em] text-[#1a1716] shadow-xl shadow-black/20 transition hover:bg-[#dfc17a]"
+                className="rounded-full bg-[#c9a45c] px-7 py-4 text-center text-[12px] font-black uppercase tracking-[0.2em] text-[#24272b] shadow-xl shadow-[#343a40]/18 transition hover:bg-[#dfc17a]"
               >
                 Request a quote
               </a>
@@ -262,39 +248,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto -mt-28 grid max-w-6xl grid-cols-2 gap-px overflow-hidden border border-white/30 bg-white/40 shadow-2xl shadow-[#24181d]/14 backdrop-blur md:grid-cols-4">
-          {[
-            ["20+", "years of trim expertise"],
-            ["100", "piece starting minimum"],
-            ["48h", "typical proof response"],
-            ["1:1", "sample before production"],
-          ].map(([value, label]) => (
-            <div key={label} className="bg-[#fbf7ef]/92 px-6 py-7 text-center">
-              <div className="font-serif text-3xl text-[#24181d]">{value}</div>
-              <div className="mt-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#6f665d]">{label}</div>
-            </div>
-          ))}
-        </div>
       </header>
 
       <section id="categories" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-12 grid gap-6 lg:grid-cols-[0.8fr_1fr] lg:items-end">
           <div>
             <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">What we make</p>
-            <h2 className="mt-3 font-serif text-4xl leading-tight text-[#1a1716] sm:text-5xl">
-              Trims that make the garment feel finished.
-            </h2>
+            <h2 className="mt-3 whitespace-nowrap font-serif text-[1.7rem] leading-tight text-[#24272b] sm:text-5xl">Premium Clothing Labels</h2>
           </div>
-          <p className="max-w-2xl text-base leading-8 text-[#665f58] lg:justify-self-end">
-            Choose from woven, printed, transferred, and dimensional finishes. Every order is set up around
-            your artwork, fold, texture, shade, and production needs.
-          </p>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
-            <article key={category.title} className="group overflow-hidden border border-[#1a1716]/10 bg-[#fbf7ef] shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#24181d]/10">
-              <div className="relative aspect-[4/3] overflow-hidden bg-[#d8cec0]">
+            <article key={category.title} className="group overflow-hidden border border-[#24272b]/10 bg-[#fbf7ef] shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#343a40]/12">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#d9d5ca]">
                 <Image
                   src={category.image}
                   alt={category.title}
@@ -306,7 +273,7 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="text-[10px] font-black uppercase tracking-[0.24em] text-[#8f2638]">{category.eyebrow}</p>
-                <h3 className="mt-3 font-serif text-2xl text-[#1a1716]">{category.title}</h3>
+                <h3 className="mt-3 font-serif text-2xl text-[#24272b]">{category.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[#665f58]">{category.description}</p>
               </div>
             </article>
@@ -314,67 +281,105 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#141112] py-20 text-[#f4f0e8]">
-        <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#c9a45c]">Quality and expertise</p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
-              Sample-led production for labels you can trust in hand.
-            </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#f4f0e8]/72">
-              Your approved sample becomes the production standard. We tune thread density, color matching,
-              cut, fold, and packing so every piece feels consistent across the run.
-            </p>
+      <section className="bg-[#e5e2d8] py-20 text-[#24272b]">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.48fr_1.52fr] lg:px-8">
+          <div className="relative mx-auto min-h-[220px] w-full max-w-xs overflow-hidden border border-[#343a40]/12 bg-[#d5d8d0] shadow-2xl shadow-[#343a40]/12 sm:min-h-[260px] lg:min-h-[280px]">
+            <Image
+              src="/images/quality-label-sample-board.png"
+              alt="Sample board of woven, printed, care, and patch clothing labels"
+              fill
+              sizes="(min-width: 1024px) 320px, (min-width: 640px) 320px, 100vw"
+              className="object-cover"
+              loading="lazy"
+            />
           </div>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-px overflow-hidden border border-white/10 bg-white/10 text-left sm:grid-cols-2 lg:grid-cols-4">
-            {["Physical sample approval", "Dedicated production contact", "Custom fold and backing options", "Careful batch quality checks"].map((item) => (
-              <div key={item} className="bg-[#141112] p-5 text-sm font-semibold leading-6 text-[#f4f0e8]/88">
-                <span className="mb-4 block h-px w-10 bg-[#c9a45c]" aria-hidden="true" />
-                {item}
-              </div>
+
+          <div className="text-center lg:text-left">
+            <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">Quality and expertise</p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+              Elevating Brands with Custom Labels
+            </h2>
+            <div className="mx-auto mt-6 grid max-w-3xl gap-5 text-base leading-8 text-[#4c5358] lg:mx-0">
+              <p>
+                For more than 20 years, Sangeetha Labels has been a trusted partner for custom woven labels,
+                printed labels, patches, and badges. We create refined branding details for apparel, packaging,
+                and finished garments using quality materials, responsible production practices, and careful
+                attention to every brief.
+              </p>
+              <p>
+                Every approved sample becomes the standard for production. From thread density and color
+                matching to cutting, folding, packing, and final quality checks, we fine-tune each detail so your
+                labels feel consistent across the full run and help your products stand apart.
+              </p>
+            </div>
+
+            <div className="mt-10 grid max-w-3xl grid-cols-2 gap-px overflow-hidden border border-[#24272b]/10 bg-[#24272b]/10 shadow-2xl shadow-[#343a40]/10 md:grid-cols-4">
+              {[
+                ["20+", "years of trim expertise"],
+                ["100", "piece starting minimum"],
+                ["48h", "typical proof response"],
+                ["1:1", "sample before production"],
+              ].map(([value, label]) => (
+                <div key={label} className="bg-[#fbf7ef]/88 px-5 py-6 text-center">
+                  <div className="font-serif text-3xl text-[#343a40]">{value}</div>
+                  <div className="mt-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#6f665d]">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" className="bg-[#f8f4ec] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">How it works</p>
+            <h2 className="mt-3 font-serif text-4xl text-[#24272b] sm:text-5xl">Custom Orders Process</h2>
+          </div>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-4">
+            {steps.map((step) => (
+              <article
+                key={step.number}
+                className="group relative overflow-hidden border border-[#24272b]/10 bg-[#fbf7ef] p-8 text-center shadow-[0_24px_70px_rgba(52,58,64,0.1)]"
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#b9975b]/45 bg-[#f4ead8] font-serif text-2xl text-[#8f2638]">
+                  {step.number}
+                </div>
+                <span className="mx-auto mt-7 block h-px w-12 bg-[#c9a45c]" aria-hidden="true" />
+                <h3 className="mt-6 text-lg font-black uppercase tracking-[0.08em] text-[#343a40]">{step.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#665f58]">{step.description}</p>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section id="process" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">Custom order process</p>
-            <h2 className="mt-3 font-serif text-4xl text-[#1a1716] sm:text-5xl">Clear from artwork to delivery.</h2>
+          <div className="mt-12 text-center">
+            <a
+              href="#quote"
+              className="inline-flex rounded-full bg-[#8f2638] px-7 py-4 text-[12px] font-black uppercase tracking-[0.2em] text-[#fbf7ef] shadow-xl shadow-[#8f2638]/18 transition hover:bg-[#a7384c]"
+            >
+              Begin a custom order
+            </a>
           </div>
-          <a href="#quote" className="text-[12px] font-black uppercase tracking-[0.22em] text-[#24181d] underline decoration-[#b9975b] underline-offset-8">
-            Begin a custom order
-          </a>
-        </div>
-
-        <div className="grid gap-px overflow-hidden border border-[#1a1716]/10 bg-[#1a1716]/10 md:grid-cols-4">
-          {steps.map((step) => (
-            <article key={step.number} className="bg-[#fbf7ef] p-7">
-              <div className="font-serif text-5xl text-[#b9975b]">{step.number}</div>
-              <h3 className="mt-8 text-lg font-black uppercase tracking-[0.08em] text-[#24181d]">{step.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-[#665f58]">{step.description}</p>
-            </article>
-          ))}
         </div>
       </section>
 
-      <section id="products" className="bg-[#e9dfcf] py-24">
+      <section id="products" className="bg-[#ebe6dc] py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
             <div>
               <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">Ready to ship</p>
-              <h2 className="mt-3 font-serif text-4xl text-[#1a1716] sm:text-5xl">Popular stock labels.</h2>
+              <h2 className="mt-3 font-serif text-4xl text-[#24272b] sm:text-5xl">Popular stock labels.</h2>
             </div>
-            <button className="self-start rounded-full border border-[#24181d]/25 px-5 py-3 text-[12px] font-black uppercase tracking-[0.18em] text-[#24181d] transition hover:bg-[#24181d] hover:text-[#f4f0e8] sm:self-auto">
+            <button className="self-start rounded-full border border-[#8f2638]/30 px-5 py-3 text-[12px] font-black uppercase tracking-[0.18em] text-[#343a40] transition hover:bg-[#8f2638] hover:text-[#fbf7ef] sm:self-auto">
               View all stock
             </button>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (
-              <article key={product.name} className="group bg-[#fbf7ef] shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#24181d]/10">
-                <div className="relative aspect-[4/4.4] overflow-hidden bg-[#d2c6b7]">
+              <article key={product.name} className="group bg-[#fbf7ef] shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#343a40]/12">
+                <div className="relative aspect-[4/4.4] overflow-hidden bg-[#d9d5ca]">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -384,17 +389,17 @@ export default function Home() {
                     loading="lazy"
                   />
                   {product.badge && (
-                    <span className="absolute left-4 top-4 bg-[#24181d] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#f4f0e8]">
+                    <span className="absolute left-4 top-4 bg-[#8f2638] px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-[#fbf7ef]">
                       {product.badge}
                     </span>
                   )}
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-2xl leading-tight text-[#1a1716]">{product.name}</h3>
+                  <h3 className="font-serif text-2xl leading-tight text-[#24272b]">{product.name}</h3>
                   <p className="mt-3 min-h-14 text-sm leading-7 text-[#665f58]">{product.description}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-[#1a1716]/10 pt-5">
-                    <span className="text-sm font-black text-[#24181d]">{product.price}</span>
-                    <button className="text-[11px] font-black uppercase tracking-[0.18em] text-[#8f2638] transition hover:text-[#24181d]">
+                  <div className="mt-6 flex items-center justify-between border-t border-[#24272b]/10 pt-5">
+                    <span className="text-sm font-black text-[#343a40]">{product.price}</span>
+                    <button className="text-[11px] font-black uppercase tracking-[0.18em] text-[#8f2638] transition hover:text-[#343a40]">
                       Enquire
                     </button>
                   </div>
@@ -406,7 +411,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="border-y border-[#1a1716]/10 py-8">
+        <div className="border-y border-[#24272b]/10 py-8">
           <p className="mb-6 text-center text-[12px] font-bold uppercase tracking-[0.28em] text-[#8f2638]">
             Made for apparel teams of every size
           </p>
@@ -419,37 +424,26 @@ export default function Home() {
       </section>
 
       <section id="quote" className="mx-auto max-w-7xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
-        <div className="grid overflow-hidden bg-[#24181d] text-[#f4f0e8] shadow-2xl shadow-[#24181d]/15 lg:grid-cols-[0.8fr_1fr]">
-          <div className="relative min-h-[420px]">
+        <div className="grid overflow-hidden bg-[#d5d8d0] text-[#24272b] shadow-2xl shadow-[#343a40]/12 lg:grid-cols-[0.58fr_1fr]">
+          <div className="relative min-h-[320px] lg:min-h-[360px]">
             <Image
-              src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1200&q=82"
-              alt="Tailoring table with garment production materials"
+              src="/images/quote-clothing-label-collage.png"
+              alt="Collection of custom woven, cotton, care, and size clothing labels"
               fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
+              sizes="(min-width: 1024px) 34vw, 100vw"
               className="object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-[#24181d]/55" />
-            <div className="relative flex h-full flex-col justify-end p-8 sm:p-10">
-              <p className="text-[12px] font-bold uppercase tracking-[0.28em] text-[#c9a45c]">Quote concierge</p>
-              <h2 className="mt-3 max-w-md font-serif text-4xl leading-tight sm:text-5xl">
-                Tell us what your brand is making.
-              </h2>
-              <p className="mt-5 max-w-md text-sm leading-7 text-[#f4f0e8]/78">
-                Send a few project details and we will come back with practical options for material, finish,
-                quantity, and timeline.
-              </p>
-            </div>
           </div>
 
-          <form onSubmit={handleSubmitQuote} className="grid gap-5 bg-[#fbf7ef] p-6 text-[#1a1716] sm:p-10">
+          <form onSubmit={handleSubmitQuote} className="grid gap-5 bg-[#fbf7ef] p-6 text-[#24272b] sm:p-10">
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2 text-xs font-black uppercase tracking-[0.16em] text-[#4c4641]">
                 Name
                 <input
                   required
                   type="text"
-                  className="border border-[#1a1716]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
+                  className="border border-[#24272b]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
                   placeholder="Your name"
                 />
               </label>
@@ -458,7 +452,7 @@ export default function Home() {
                 <input
                   required
                   type="email"
-                  className="border border-[#1a1716]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
+                  className="border border-[#24272b]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
                   placeholder="you@brand.com"
                 />
               </label>
@@ -467,7 +461,7 @@ export default function Home() {
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="grid gap-2 text-xs font-black uppercase tracking-[0.16em] text-[#4c4641]">
                 Label Type
-                <select className="border border-[#1a1716]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18">
+                <select className="border border-[#24272b]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18">
                   <option>Damask woven labels</option>
                   <option>Printed cotton labels</option>
                   <option>Heat transfer labels</option>
@@ -480,7 +474,7 @@ export default function Home() {
                 <input
                   type="number"
                   min="100"
-                  className="border border-[#1a1716]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
+                  className="border border-[#24272b]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
                   placeholder="Minimum 100 pcs"
                 />
               </label>
@@ -490,14 +484,14 @@ export default function Home() {
               Project Details
               <textarea
                 rows={5}
-                className="resize-none border border-[#1a1716]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
+                className="resize-none border border-[#24272b]/15 bg-white px-4 py-3 text-sm font-medium normal-case tracking-normal outline-none transition focus:border-[#8f2638] focus:ring-4 focus:ring-[#c9a45c]/18"
                 placeholder="Artwork, dimensions, folds, material, backing, delivery date..."
               />
             </label>
 
             <button
               type="submit"
-              className="mt-2 bg-[#24181d] px-6 py-4 text-[12px] font-black uppercase tracking-[0.22em] text-[#f4f0e8] transition hover:bg-[#3a202a]"
+              className="mt-2 bg-[#8f2638] px-6 py-4 text-[12px] font-black uppercase tracking-[0.22em] text-[#fbf7ef] transition hover:bg-[#a7384c]"
             >
               Send quote request
             </button>
@@ -511,13 +505,12 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#0e0d0c] px-4 py-12 text-[#f4f0e8]/65 sm:px-6 lg:px-8">
+      <footer className="bg-[#343a40] px-4 py-12 text-[#fbf7ef]/72 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 border-b border-white/10 pb-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            <div className="font-serif text-3xl text-[#f4f0e8]">Sangeetha Labels</div>
+            <div className="font-serif text-3xl font-medium tracking-[0.04em] text-[#f4f0e8]">Sangeetha Labels</div>
             <p className="mt-4 max-w-md text-sm leading-7">
-              Premium custom clothing labels, tags, and trims for apparel brands that care about the detail
-              people notice last and remember longest.
+              Premium, durable custom clothing labels crafted to elevate your brand.
             </p>
           </div>
           <div>
