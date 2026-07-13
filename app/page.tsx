@@ -224,8 +224,8 @@ export default function Home() {
 
           <div className="relative min-h-[460px] overflow-hidden lg:min-h-[760px]">
             <Image
-              src="/images/damask-woven-label.png"
-              alt="Close-up of a premium damask woven clothing label"
+              src="/images/generic-label-assortment-hero.png"
+              alt="Assortment of premium generic woven labels, badges, size tabs, and jacquard trims"
               fill
               sizes="(min-width: 1024px) 55vw, 100vw"
               className="object-cover transition duration-[1600ms] hover:scale-[1.025]"
