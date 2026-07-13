@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f3ec;
-  --foreground: #24272b;
+  --background: #f3eee8;
+  --foreground: #241d1f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Avenir Next", Avenir, Optima, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: var(--font-inter), Inter, Arial, sans-serif;
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -19,6 +19,8 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "kern";
   text-rendering: geometricPrecision;
+  letter-spacing: -0.01em;
+  font-size: 15px;
 }
 
 html {
@@ -31,41 +33,4 @@ input,
 select,
 textarea {
   border-radius: 0;
-}
-
-.hero-background-track {
-  animation: hero-background-left 42s linear infinite;
-}
-
-.hero-background-track-reverse {
-  animation-name: hero-background-right;
-  animation-duration: 46s;
-}
-
-@keyframes hero-background-left {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-33.333%);
-  }
-}
-
-@keyframes hero-background-right {
-  from {
-    transform: translateX(-33.333%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-background-track,
-  .hero-background-track-reverse {
-    animation: none;
-    transform: translateX(0);
-  }
 }
