@@ -19,7 +19,6 @@ type Product = {
 };
 
 type Step = {
-  number: string;
   title: string;
   description: string;
 };
@@ -82,22 +81,18 @@ const products: Product[] = [
 
 const steps: Step[] = [
   {
-    number: "01",
     title: "Get Quote",
     description: "Share label type, size, quantity, artwork, and finish requirements for a clear production estimate.",
   },
   {
-    number: "02",
     title: "Artwork Review",
     description: "We check your file, refine the technical details, and prepare the label layout for sampling.",
   },
   {
-    number: "03",
     title: "Sample Approval",
     description: "Approve the digital or physical sample so color, texture, fold, and finishing are locked before bulk work.",
   },
   {
-    number: "04",
     title: "Bulk Production",
     description: "Your labels move into production, quality checking, packing, and dispatch for your brand or factory.",
   },
@@ -113,22 +108,6 @@ const industries = [
   "Handcrafted products",
   "Uniforms and workwear",
   "Boutiques and brands",
-];
-
-const productsWeMake = [
-  "Woven labels",
-  "Printed labels",
-  "Heat transfer labels",
-  "Woven badges",
-  "Embroidery badges and labels",
-  "Laser-cut labels",
-  "Zipper puller labels",
-  "Stuffed and puff labels",
-  "Iron-on woven labels",
-  "Jacquard tapes",
-  "Main and brand labels",
-  "Wash care labels",
-  "Size labels",
 ];
 
 export default function Home() {
@@ -307,32 +286,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-28 grid lg:grid-cols-2">
-            {[
-              ["01", "Industries we cater to", "Built for brands across sectors", industries],
-              ["02", "Products we make", "A complete label and trim portfolio", productsWeMake],
-            ].map(([number, title, subtitle, items], panelIndex) => (
-              <article key={title as string} className={`relative overflow-hidden p-8 sm:p-12 lg:p-14 ${panelIndex === 0 ? "bg-[#e9dfd9] text-[#241d1f]" : "bg-[#f3eee8] text-[#241d1f]"}`}>
-                <span className="absolute -right-4 -top-12 font-serif text-[10rem] leading-none text-[#241d1f]/[0.04]" aria-hidden="true">
-                  {number as string}
-                </span>
-                <div className="relative">
-                  <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">{subtitle as string}</p>
-                  <h3 className="mt-3 max-w-md font-serif text-3xl font-medium leading-tight">{title as string}</h3>
-                  <ul className={`mt-8 grid gap-x-8 text-sm sm:grid-cols-2 ${panelIndex === 0 ? "text-[#241d1f]/72" : "text-[#241d1f]"}`}>
-                    {(items as string[]).map((item, index) => (
-                      <li key={item} className="flex min-h-12 items-center gap-4 border-b border-[#241d1f]/10 py-3">
-                        <span className={`font-serif text-xs ${panelIndex === 0 ? "text-[#241d1f]" : "text-[#241d1f]"}`}>{String(index + 1).padStart(2, "0")}</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+          <div className="mt-28 bg-[#e9dfd9] p-8 text-[#241d1f] sm:p-12 lg:p-14">
+            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">Built for brands across sectors</p>
+                <h3 className="mt-3 font-serif text-3xl font-medium leading-tight">Industries we cater to</h3>
+              </div>
+              <p className="max-w-sm text-sm leading-7 text-[#65595c]">
+                Flexible label solutions developed around the material, finish, and performance needs of each market.
+              </p>
+            </div>
+            <ul className="mt-12 grid gap-x-8 text-sm text-[#241d1f] sm:grid-cols-2 lg:grid-cols-4">
+              {industries.map((industry) => (
+                <li key={industry} className="flex min-h-14 items-center gap-4 border-t border-[#241d1f]/12 py-4">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6d3745]" aria-hidden="true" />
+                  <span>{industry}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="bg-[#e9dfd9] p-8 text-[#241d1f] sm:p-12 lg:p-14">
+          <div className="mt-6 bg-[#f3eee8] p-8 text-[#241d1f] sm:p-12 lg:p-14">
             <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">Infrastructure</p>
             <div className="mt-10 grid gap-10 md:grid-cols-3">
               <div>
@@ -405,13 +379,11 @@ export default function Home() {
           <div className="mt-16 grid border-y border-[#241d1f]/15 md:grid-cols-4">
             {steps.map((step) => (
               <article
-                key={step.number}
+                key={step.title}
                 className="group relative p-8 text-left md:border-r md:border-[#241d1f]/15 md:last:border-r-0 lg:p-10"
               >
-                <div className="font-serif text-4xl text-[#241d1f] transition duration-500 group-hover:-translate-y-1">
-                  {step.number}
-                </div>
-                <h3 className="mt-8 font-serif text-xl font-medium text-[#241d1f]">{step.title}</h3>
+                <span className="block h-1.5 w-1.5 rounded-full bg-[#6d3745] transition duration-500 group-hover:scale-150" aria-hidden="true" />
+                <h3 className="mt-7 font-serif text-xl font-medium text-[#241d1f]">{step.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-[#65595c]">{step.description}</p>
               </article>
             ))}
