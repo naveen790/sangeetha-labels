@@ -226,7 +226,7 @@ export default function Home() {
         <div className="mx-auto grid min-h-[760px] max-w-[1440px] lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative z-10 flex items-center px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
             <div className="max-w-2xl">
-              <h1 className="mt-8 font-serif text-6xl font-normal leading-[0.88] tracking-[-0.045em] sm:text-8xl lg:text-[8.5rem]">
+              <h1 className="mt-8 font-serif text-5xl font-medium leading-[0.9] tracking-[-0.035em] sm:text-7xl lg:text-[7rem]">
                 Lasting impressions.
               </h1>
               <p className="mt-8 max-w-lg text-sm leading-7 text-[#65595c] sm:text-base sm:leading-8">
@@ -265,7 +265,7 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:gap-20">
             <p className="pt-2 text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Our philosophy</p>
             <div>
-              <h2 className="max-w-4xl font-serif text-5xl font-normal leading-[0.98] tracking-[-0.03em] sm:text-6xl">Excellence in every label.</h2>
+              <h2 className="max-w-4xl font-serif text-4xl font-medium leading-none tracking-[-0.025em] sm:text-5xl">Excellence in every label.</h2>
               <p className="mt-8 max-w-3xl text-base leading-8 text-[#65595c]">
                 Sangeetha Label is a leading woven label factory dedicated to providing high-quality, customized
                 woven labels for a wide range of industries worldwide. With decades of experience in the textile
@@ -279,7 +279,7 @@ export default function Home() {
             <div className="mb-10 flex flex-col justify-between gap-4 border-b border-[#241d1f]/15 pb-6 sm:flex-row sm:items-end">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">What we make</p>
-                <h2 className="mt-3 font-serif text-4xl leading-tight text-[#241d1f] sm:text-5xl">Premium clothing labels</h2>
+                <h2 className="mt-3 font-serif text-3xl font-medium leading-tight text-[#241d1f] sm:text-4xl">Premium clothing labels</h2>
               </div>
               <p className="max-w-xs text-sm leading-6 text-[#65595c]">Signature details designed to make products memorable.</p>
             </div>
@@ -299,7 +299,7 @@ export default function Home() {
                   </div>
                   <div className="pt-5">
                     <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">{category.eyebrow}</p>
-                    <h3 className="mt-2 font-serif text-2xl text-[#241d1f]">{category.title}</h3>
+                    <h3 className="mt-2 font-serif text-xl font-medium text-[#241d1f]">{category.title}</h3>
                     <p className="mt-3 text-xs leading-6 text-[#65595c]">{category.description}</p>
                   </div>
                 </article>
@@ -318,7 +318,7 @@ export default function Home() {
                 </span>
                 <div className="relative">
                   <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">{subtitle as string}</p>
-                  <h3 className="mt-3 max-w-md font-serif text-4xl leading-tight">{title as string}</h3>
+                  <h3 className="mt-3 max-w-md font-serif text-3xl font-medium leading-tight">{title as string}</h3>
                   <ul className={`mt-8 grid gap-x-8 text-sm sm:grid-cols-2 ${panelIndex === 0 ? "text-[#241d1f]/72" : "text-[#241d1f]"}`}>
                     {(items as string[]).map((item, index) => (
                       <li key={item} className="flex min-h-12 items-center gap-4 border-b border-[#241d1f]/10 py-3">
@@ -336,21 +336,21 @@ export default function Home() {
             <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">Infrastructure</p>
             <div className="mt-10 grid gap-10 md:grid-cols-3">
               <div>
-                <h3 className="font-serif text-2xl">Woven Jacquard looms</h3>
+                <h3 className="font-serif text-xl font-medium">Woven Jacquard looms</h3>
                 <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
                   Our woven Jacquard looms are imported from Switzerland and Italy. Their latest technology
                   delivers the sharp, fine finish brands require, with a capacity of 500,000 pieces per day.
                 </p>
               </div>
               <div>
-                <h3 className="font-serif text-2xl">Cutting and folding</h3>
+                <h3 className="font-serif text-xl font-medium">Cutting and folding</h3>
                 <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
                   Our latest Japanese cutting and folding machines are housed in-house to deliver precise cutting
                   and finishing that meets each customer&apos;s requirements.
                 </p>
               </div>
               <div>
-                <h3 className="font-serif text-2xl">Embroidery machines</h3>
+                <h3 className="font-serif text-xl font-medium">Embroidery machines</h3>
                 <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
                   Our in-house Japanese embroidery machines have a total of 100 heads, providing the production
                   capacity needed to meet customer requirements.
@@ -366,7 +366,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Certifications</p>
-            <h2 className="mt-5 font-serif text-5xl font-normal leading-[0.98] tracking-[-0.03em] text-[#241d1f] sm:text-6xl">Trusted quality, globally assured.</h2>
+            <h2 className="mt-5 font-serif text-4xl font-medium leading-none tracking-[-0.025em] text-[#241d1f] sm:text-5xl">Trusted quality, globally assured.</h2>
           </div>
 
           <div className="mx-auto mt-14 grid max-w-4xl gap-12 sm:grid-cols-3">
@@ -395,7 +395,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Design</p>
-            <h2 className="mt-5 font-serif text-5xl font-normal leading-[0.98] tracking-[-0.03em] text-[#241d1f] sm:text-6xl">From idea to final label.</h2>
+            <h2 className="mt-5 font-serif text-4xl font-medium leading-none tracking-[-0.025em] text-[#241d1f] sm:text-5xl">From idea to final label.</h2>
             <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[#65595c]">
               Our team of experienced designers is on hand to assist clients in creating captivating label designs
               that effectively communicate their brand message and enhance the visual appeal of their products.
@@ -411,7 +411,7 @@ export default function Home() {
                 <div className="font-serif text-4xl text-[#241d1f] transition duration-500 group-hover:-translate-y-1">
                   {step.number}
                 </div>
-                <h3 className="mt-8 font-serif text-2xl text-[#241d1f]">{step.title}</h3>
+                <h3 className="mt-8 font-serif text-xl font-medium text-[#241d1f]">{step.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-[#65595c]">{step.description}</p>
               </article>
             ))}
@@ -433,7 +433,7 @@ export default function Home() {
           <div className="mb-14 flex flex-col justify-between gap-5 border-b border-[#241d1f]/15 pb-7 sm:flex-row sm:items-end">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Ready to ship</p>
-              <h2 className="mt-4 font-serif text-5xl font-normal leading-none tracking-[-0.03em] sm:text-6xl">Popular stock labels.</h2>
+              <h2 className="mt-4 font-serif text-4xl font-medium leading-none tracking-[-0.025em] sm:text-5xl">Popular stock labels.</h2>
             </div>
             <button className="self-start border border-[#241d1f]/25 px-5 py-3 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#241d1f] transition hover:bg-[#f3eee8] sm:self-auto">
               View all stock
@@ -459,7 +459,7 @@ export default function Home() {
                   )}
                 </div>
                 <div className="pt-5">
-                  <h3 className="font-serif text-2xl leading-tight text-[#241d1f]">{product.name}</h3>
+                  <h3 className="font-serif text-xl font-medium leading-tight text-[#241d1f]">{product.name}</h3>
                   <p className="mt-3 min-h-14 text-sm leading-7 text-[#241d1f]/58">{product.description}</p>
                   <div className="mt-6 flex items-center justify-between border-t border-[#241d1f]/15 pt-5">
                     <span className="text-xs font-semibold text-[#241d1f]">{product.price}</span>
@@ -479,7 +479,7 @@ export default function Home() {
           <p className="mb-8 text-center text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">
             Made for apparel teams of every size
           </p>
-          <div className="grid grid-cols-2 gap-5 text-center font-serif text-2xl text-[#241d1f] sm:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-5 text-center font-serif text-xl font-medium text-[#241d1f] sm:grid-cols-3 lg:grid-cols-6">
             {clients.map((client) => (
               <div key={client}>{client}</div>
             ))}
@@ -492,7 +492,7 @@ export default function Home() {
           <div className="flex min-h-[420px] items-center bg-[#e9dfd9] p-8 sm:p-12 lg:min-h-[760px] lg:p-16 xl:p-20">
             <div className="max-w-xl">
               <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Label inquiries</p>
-              <h2 className="mt-6 font-serif text-6xl font-normal leading-[0.9] tracking-[-0.045em] sm:text-7xl lg:text-8xl">Let&apos;s Label.</h2>
+              <h2 className="mt-6 font-serif text-5xl font-medium leading-[0.92] tracking-[-0.035em] sm:text-6xl lg:text-7xl">Let&apos;s Label.</h2>
               <p className="mt-8 max-w-md text-sm leading-7 text-[#65595c]">
                 Tell us what you are making and we will guide you through materials, finishes, sampling, and production.
               </p>
@@ -592,7 +592,7 @@ export default function Home() {
       <footer className="bg-[#e9dfd9] px-5 py-14 text-[#241d1f]/68 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-7xl gap-10 border-b border-[#241d1f]/10 pb-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            <div className="font-serif text-4xl font-normal tracking-[-0.02em] text-[#241d1f]">Sangeetha Labels</div>
+            <div className="font-serif text-3xl font-medium tracking-[-0.015em] text-[#241d1f]">Sangeetha Labels</div>
             <p className="mt-4 max-w-md text-sm leading-7">
               Premium, durable custom clothing labels crafted to elevate your brand.
             </p>
