@@ -10,17 +10,14 @@ type Category = {
   image: string;
 };
 
-type Product = {
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  badge?: string;
-};
-
 type Step = {
   title: string;
   description: string;
+};
+
+type Industry = {
+  name: string;
+  image: string;
 };
 
 const categories: Category[] = [
@@ -50,35 +47,6 @@ const categories: Category[] = [
   },
 ];
 
-const products: Product[] = [
-  {
-    name: "Letter Size Woven Labels",
-    description: "Pre-folded size run from XXS to 6XL in bright white.",
-    price: "from ₹7.50",
-    badge: "Stock",
-    image: "/images/stock-size-labels.png",
-  },
-  {
-    name: "Custom Cotton Printed Label",
-    description: "Natural cotton base with soft black print and clean edges.",
-    price: "Free sample",
-    badge: "Sample",
-    image: "/images/stock-cotton-printed-labels.png",
-  },
-  {
-    name: "Black Damask Brand Label",
-    description: "High-density black weave for luxury apparel collections.",
-    price: "from ₹25.00",
-    image: "/images/stock-black-damask-labels.png",
-  },
-  {
-    name: "Care & Origin Label Set",
-    description: "Care, content, and origin labels finished for production.",
-    price: "from ₹15.00",
-    image: "/images/stock-care-origin-labels.png",
-  },
-];
-
 const steps: Step[] = [
   {
     title: "Get Quote",
@@ -98,21 +66,20 @@ const steps: Step[] = [
   },
 ];
 
-const clients = ["Studio wear", "Boutiques", "Uniforms", "Kidswear", "Activewear", "Export houses"];
-
-const industries = [
-  "Apparel and fashion",
-  "Footwear and shoes",
-  "Home textiles",
-  "Luggage and bags",
-  "Handcrafted products",
-  "Uniforms and workwear",
-  "Boutiques and brands",
+const industries: Industry[] = [
+  { name: "Apparel and Fashion", image: "/images/generic-label-assortment-hero.png" },
+  { name: "Footwear and Shoes", image: "/images/patches-and-badges.png" },
+  { name: "Home Textiles", image: "/images/printed-cotton-labels.png" },
+  { name: "Luggage and Bags", image: "/images/quality-label-sample-board.png" },
+  { name: "Hand Crafted Products", image: "/images/damask-woven-label.png" },
+  { name: "Uniforms and Work", image: "/images/generic-woven-label-hero.png" },
+  { name: "Boutiques and Brands", image: "/images/quote-clothing-label-collage.png" },
 ];
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
+  const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
 
   const handleSubmitQuote = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -125,23 +92,16 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f3eee8] text-[#241d1f] selection:bg-[#e9dfd9] selection:text-[#241d1f]">
       <nav className="sticky top-0 z-50 border-b border-[#241d1f]/10 bg-[#f3eee8]/95 backdrop-blur-xl">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+        <div className="mx-auto flex h-[80px] max-w-[1440px] items-center justify-between px-5 sm:h-[84px] sm:px-8 lg:px-12">
           <a href="#" className="flex items-center gap-3" aria-label="Sangeetha Labels home">
             <Image
-              src="/icons/apple-touch-icon.png"
+              src="/icons/android-chrome-512x512.png"
               alt=""
-              width={40}
-              height={40}
-              className="rounded-full border border-[#241d1f]/15 bg-[#e9dfd9] object-contain p-1"
+              width={228}
+              height={57}
+              className="h-[51px] w-[204px] object-fill sm:h-[57px] sm:w-[228px]"
+              priority
             />
-            <span className="leading-none">
-              <span className="block font-serif text-xl font-medium tracking-[0.06em] text-[#241d1f]">
-                Sangeetha
-              </span>
-              <span className="block text-[9px] font-semibold uppercase tracking-[0.38em] text-[#6d3745]">
-                Labels
-              </span>
-            </span>
           </a>
 
           <div className="hidden items-center gap-9 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#65595c] md:flex">
@@ -153,9 +113,6 @@ export default function Home() {
             </a>
             <a href="#process" className="transition hover:text-[#241d1f]">
               Process
-            </a>
-            <a href="#products" className="transition hover:text-[#241d1f]">
-              Stock
             </a>
             <a href="#quote" className="border border-[#241d1f]/25 px-5 py-3 transition hover:bg-[#e9dfd9]">
               Quote
@@ -190,9 +147,6 @@ export default function Home() {
               <a onClick={closeMenu} href="#process" className="py-3">
                 Process
               </a>
-              <a onClick={closeMenu} href="#products" className="py-3">
-                Stock
-              </a>
               <a onClick={closeMenu} href="#quote" className="py-3">
                 Quote
               </a>
@@ -205,11 +159,12 @@ export default function Home() {
         <div className="mx-auto grid min-h-[760px] max-w-[1440px] lg:grid-cols-[0.9fr_1.1fr]">
           <div className="relative z-10 flex items-center px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
             <div className="max-w-2xl">
-              <h1 className="mt-8 font-serif text-5xl font-medium leading-[0.9] tracking-[-0.035em] sm:text-7xl lg:text-[7rem]">
-                Lasting impressions.
+              <h1 className="mt-7 font-serif text-5xl font-medium leading-[0.88] tracking-[-0.035em] sm:text-7xl lg:text-[6.5rem]">
+                Premium
+                <span className="block font-normal italic text-[#6d3745]">    Labels</span>
               </h1>
               <p className="mt-8 max-w-lg text-sm leading-7 text-[#65595c] sm:text-base sm:leading-8">
-                Premium woven labels, printed trims, and badges crafted with precision to give every brand a distinctive signature.
+                Precision-woven details that give every garment a distinctive expression of your brand.
               </p>
               <div className="mt-11 flex flex-col gap-3 sm:flex-row">
                 <a href="#quote" className="border border-[#241d1f]/20 bg-[#f3eee8] px-7 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-[#241d1f] transition hover:bg-[#e9dfd9]">
@@ -244,7 +199,7 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.55fr_1fr] lg:gap-20">
             <p className="pt-2 text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Our philosophy</p>
             <div>
-              <h2 className="max-w-4xl font-serif text-4xl font-medium leading-none tracking-[-0.025em] sm:text-5xl">Excellence in every label.</h2>
+              <h2 className="max-w-4xl font-serif text-4xl font-medium leading-none tracking-[-0.025em] sm:text-5xl">Excellence in every label</h2>
               <p className="mt-8 max-w-3xl text-base leading-8 text-[#65595c]">
                 Sangeetha Label is a leading woven label factory dedicated to providing high-quality, customized
                 woven labels for a wide range of industries worldwide. With decades of experience in the textile
@@ -258,7 +213,7 @@ export default function Home() {
             <div className="mb-10 flex flex-col justify-between gap-4 border-b border-[#241d1f]/15 pb-6 sm:flex-row sm:items-end">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">What we make</p>
-                <h2 className="mt-3 font-serif text-3xl font-medium leading-tight text-[#241d1f] sm:text-4xl">Premium clothing labels</h2>
+                <h2 className="mt-3 font-serif text-3xl font-medium leading-tight text-[#241d1f] sm:text-4xl">Product Catalog</h2>
               </div>
               <p className="max-w-xs text-sm leading-6 text-[#65595c]">Signature details designed to make products memorable.</p>
             </div>
@@ -286,24 +241,81 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-28 bg-[#e9dfd9] p-8 text-[#241d1f] sm:p-12 lg:p-14">
-            <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div className="mt-28 overflow-hidden bg-[#e9dfd9] text-[#241d1f]">
+            <div className="flex flex-col justify-between gap-6 px-8 py-10 sm:flex-row sm:items-end sm:px-12 lg:px-14 lg:py-12">
               <div>
                 <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">Built for brands across sectors</p>
-                <h3 className="mt-3 font-serif text-3xl font-medium leading-tight">Industries we cater to</h3>
+                <h3 className="mt-4 font-serif text-3xl font-medium leading-tight sm:text-4xl">Industries we cater to</h3>
               </div>
               <p className="max-w-sm text-sm leading-7 text-[#65595c]">
                 Flexible label solutions developed around the material, finish, and performance needs of each market.
               </p>
             </div>
-            <ul className="mt-12 grid gap-x-8 text-sm text-[#241d1f] sm:grid-cols-2 lg:grid-cols-4">
-              {industries.map((industry) => (
-                <li key={industry} className="flex min-h-14 items-center gap-4 border-t border-[#241d1f]/12 py-4">
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6d3745]" aria-hidden="true" />
-                  <span>{industry}</span>
-                </li>
-              ))}
-            </ul>
+
+            <div className="grid border-t border-[#241d1f]/12 lg:grid-cols-[0.82fr_1.18fr]">
+              <div className="lg:border-r lg:border-[#241d1f]/12">
+                {industries.map((industry, index) => {
+                  const isActive = activeIndustryIndex === index;
+
+                  return (
+                    <button
+                      key={industry.name}
+                      type="button"
+                      onClick={() => setActiveIndustryIndex(index)}
+                      aria-controls="industry-preview"
+                      aria-pressed={isActive}
+                      className={`group flex min-h-[68px] w-full items-center justify-between border-b border-[#241d1f]/12 px-8 text-left font-serif text-lg font-medium transition-all duration-300 last:border-b-0 sm:px-12 sm:text-xl lg:px-14 ${
+                        isActive
+                          ? "bg-[#f3eee8] text-[#6d3745]"
+                          : "text-[#241d1f] hover:bg-[#f3eee8] hover:text-[#6d3745]"
+                      }`}
+                    >
+                      <span className="flex items-center gap-4">
+                        <span
+                          className={`h-1.5 w-1.5 shrink-0 rounded-full transition-all duration-300 ${
+                            isActive ? "scale-100 bg-[#6d3745]" : "scale-75 bg-[#241d1f]/30 group-hover:scale-100 group-hover:bg-[#6d3745]"
+                          }`}
+                          aria-hidden="true"
+                        />
+                        {industry.name}
+                      </span>
+                      <span
+                        className={`ml-4 text-base transition duration-300 ${isActive ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"}`}
+                        aria-hidden="true"
+                      >
+                        ↗
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div id="industry-preview" className="relative min-h-[400px] overflow-hidden bg-[#f3eee8] sm:min-h-[500px] lg:min-h-full">
+                {industries.map((industry, index) => (
+                  <Image
+                    key={industry.name}
+                    src={industry.image}
+                    alt={`Premium label presentation for ${industry.name}`}
+                    fill
+                    sizes="(min-width: 1024px) 55vw, 100vw"
+                    className={`object-cover transition-all duration-700 ease-out ${
+                      activeIndustryIndex === index ? "scale-100 opacity-100" : "pointer-events-none scale-[1.025] opacity-0"
+                    }`}
+                    loading="lazy"
+                  />
+                ))}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#241d1f]/55 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-8 text-[#f3eee8] sm:p-10">
+                  <div aria-live="polite">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#f3eee8]/75">Selected industry</p>
+                    <p className="mt-3 font-serif text-2xl font-medium sm:text-3xl">{industries[activeIndustryIndex].name}</p>
+                  </div>
+                  <span className="hidden h-12 w-12 items-center justify-center rounded-full border border-[#f3eee8]/45 text-lg sm:flex" aria-hidden="true">
+                    ↗
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mt-6 bg-[#f3eee8] p-8 text-[#241d1f] sm:p-12 lg:p-14">
@@ -396,65 +408,6 @@ export default function Home() {
             >
               Begin a custom order
             </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="products" className="bg-[#e9dfd9] py-24 text-[#241d1f] lg:py-32">
-        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-          <div className="mb-14 flex flex-col justify-between gap-5 border-b border-[#241d1f]/15 pb-7 sm:flex-row sm:items-end">
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Ready to ship</p>
-              <h2 className="mt-4 font-serif text-4xl font-medium leading-none tracking-[-0.025em] sm:text-5xl">Popular stock labels.</h2>
-            </div>
-            <button className="self-start border border-[#241d1f]/25 px-5 py-3 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#241d1f] transition hover:bg-[#f3eee8] sm:self-auto">
-              View all stock
-            </button>
-          </div>
-
-          <div className="grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((product) => (
-              <article key={product.name} className="group">
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#f3eee8]">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
-                    loading="lazy"
-                  />
-                  {product.badge && (
-                    <span className="absolute left-4 top-4 bg-[#f3eee8] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.2em] text-[#241d1f]">
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
-                <div className="pt-5">
-                  <h3 className="font-serif text-xl font-medium leading-tight text-[#241d1f]">{product.name}</h3>
-                  <p className="mt-3 min-h-14 text-sm leading-7 text-[#241d1f]/58">{product.description}</p>
-                  <div className="mt-6 flex items-center justify-between border-t border-[#241d1f]/15 pt-5">
-                    <span className="text-xs font-semibold text-[#241d1f]">{product.price}</span>
-                    <button className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#241d1f] transition hover:text-[#241d1f]">
-                      Enquire
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12">
-        <div className="border-y border-[#241d1f]/15 py-10">
-          <p className="mb-8 text-center text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">
-            Made for apparel teams of every size
-          </p>
-          <div className="grid grid-cols-2 gap-5 text-center font-serif text-xl font-medium text-[#241d1f] sm:grid-cols-3 lg:grid-cols-6">
-            {clients.map((client) => (
-              <div key={client}>{client}</div>
-            ))}
           </div>
         </div>
       </section>
@@ -562,9 +515,15 @@ export default function Home() {
       </section>
 
       <footer className="bg-[#e9dfd9] px-5 py-14 text-[#241d1f]/68 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 border-b border-[#241d1f]/10 pb-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+        <div className="mx-auto grid max-w-7xl gap-10 border-b border-[#241d1f]/10 pb-10 md:grid-cols-2 lg:grid-cols-[1.05fr_0.55fr_0.8fr_1.2fr]">
           <div>
-            <div className="font-serif text-3xl font-medium tracking-[-0.015em] text-[#241d1f]">Sangeetha Labels</div>
+            <Image
+              src="/icons/android-chrome-512x512.png"
+              alt="Sangeetha Label"
+              width={220}
+              height={55}
+              className="h-[55px] w-[220px] object-fill"
+            />
             <p className="mt-4 max-w-md text-sm leading-7">
               Premium, durable custom clothing labels crafted to elevate your brand.
             </p>
@@ -591,6 +550,29 @@ export default function Home() {
               <a href="mailto:hello@sangeethalabel.com" className="transition hover:text-[#241d1f]">
                 hello@sangeethalabel.com
               </a>
+            </div>
+          </div>
+          <div>
+            <div className="flex items-end justify-between gap-4">
+              <h3 className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#241d1f]">Location</h3>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#6d3745] transition hover:text-[#241d1f]"
+              >
+                Open map ↗
+              </a>
+            </div>
+            <div className="mt-5 overflow-hidden border border-[#241d1f]/15 bg-[#f3eee8] p-2">
+              <iframe
+                title="Sangeetha Labels location on Google Maps"
+                src="https://www.google.com/maps?q=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603&output=embed"
+                className="h-52 w-full grayscale transition duration-500 hover:grayscale-0 lg:h-44"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
