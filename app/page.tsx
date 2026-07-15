@@ -22,13 +22,13 @@ type Industry = {
 
 const categories: Category[] = [
   {
-    title: "Damask Woven Labels",
+    title: "Woven Labels",
     eyebrow: "Fine thread detail",
     description: "Soft-touch woven labels with sharp artwork, clean folds, and premium color depth.",
     image: "/images/damask-woven-label.png",
   },
   {
-    title: "Printed Cotton Labels",
+    title: "Printed Labels",
     eyebrow: "Natural finish",
     description: "Breathable cotton and satin bases for care labels, brand stories, and wash details.",
     image: "/images/printed-cotton-labels.png",
@@ -40,10 +40,58 @@ const categories: Category[] = [
     image: "/images/heat-transfer-labels.png",
   },
   {
-    title: "Patches & Badges",
+    title: "Woven Badges",
     eyebrow: "Dimensional branding",
     description: "Woven, embroidered, silicone, and leather-look badges for signature collections.",
     image: "/images/patches-and-badges.png",
+  },
+  {
+    title: "Embroidered Badges & Labels",
+    eyebrow: "Sculpted threadwork",
+    description: "Raised embroidery gives logos and emblems rich texture and depth.",
+    image: "/images/stock-black-damask-labels.png",
+  },
+  {
+    title: "Laser-Cut Labels",
+    eyebrow: "Precision contour",
+    description: "Intricate shapes finished with clean, sealed edges that resist fraying.",
+    image: "/images/stock-cotton-printed-labels.png",
+  },
+  {
+    title: "Zipper Puller Labels",
+    eyebrow: "Functional signature",
+    description: "Two-sided woven pull tabs pair effortless grip with distinctive branding.",
+    image: "/images/stock-care-origin-labels.png",
+  },
+  {
+    title: "Stuffed & Puff Labels",
+    eyebrow: "Tactile dimension",
+    description: "Softly padded construction creates a bold, dimensional brand detail.",
+    image: "/images/stock-black-damask-labels.png",
+  },
+  {
+    title: "Iron-On Woven Labels",
+    eyebrow: "Heat-set finish",
+    description: "Heat-activated woven branding with a clean finish and no stitching required.",
+    image: "/images/stock-cotton-printed-labels.png",
+  },
+  {
+    title: "Wash Care Labels",
+    eyebrow: "Enduring clarity",
+    description: "Clear care and composition details made to endure repeated washing.",
+    image: "/images/stock-care-origin-labels.png",
+  },
+  {
+    title: "Size Labels",
+    eyebrow: "Refined identification",
+    description: "Compact woven markers for polished, consistent size identification.",
+    image: "/images/stock-size-labels.png",
+  },
+  {
+    title: "Jacquard Tapes",
+    eyebrow: "Woven expression",
+    description: "Logos and patterns woven into durable tape for trims, straps, and accents.",
+    image: "/images/stock-black-damask-labels.png",
   },
 ];
 
@@ -115,7 +163,7 @@ export default function Home() {
               Process
             </a>
             <a href="#quote" className="border border-[#241d1f]/25 px-5 py-3 transition hover:bg-[#e9dfd9]">
-              Quote
+              Contact
             </a>
           </div>
 
@@ -148,7 +196,7 @@ export default function Home() {
                 Process
               </a>
               <a onClick={closeMenu} href="#quote" className="py-3">
-                Quote
+                Contact
               </a>
             </div>
           </div>
@@ -156,33 +204,24 @@ export default function Home() {
       </nav>
 
       <header className="overflow-hidden bg-[#e9dfd9] text-[#241d1f]">
-        <div className="mx-auto grid min-h-[760px] max-w-[1440px] lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative z-10 flex items-center px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto grid min-h-[560px] max-w-[1440px] lg:grid-cols-[1.25fr_0.75fr]">
+          <div className="relative z-10 flex items-center px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
             <div className="max-w-2xl">
-              <h1 className="mt-7 font-serif text-5xl font-medium leading-[0.88] tracking-[-0.035em] sm:text-7xl lg:text-[6.5rem]">
-                Premium
-                <span className="block font-normal italic text-[#6d3745]">    Labels</span>
+              <h1 className="mt-7 whitespace-nowrap font-serif text-5xl font-medium leading-[0.88] tracking-[-0.035em] sm:text-7xl lg:text-[6.5rem]">
+                Premium <span className="font-normal italic text-[#6d3745]">Labels</span>
               </h1>
               <p className="mt-8 max-w-lg text-sm leading-7 text-[#65595c] sm:text-base sm:leading-8">
-                Precision-woven details that give every garment a distinctive expression of your brand.
+                Exquisite premium labels crafted to elevate your brand.
               </p>
-              <div className="mt-11 flex flex-col gap-3 sm:flex-row">
-                <a href="#quote" className="border border-[#241d1f]/20 bg-[#f3eee8] px-7 py-4 text-center text-[10px] font-semibold uppercase tracking-[0.24em] text-[#241d1f] transition hover:bg-[#e9dfd9]">
-                  Start your project
-                </a>
-                <a href="#categories" className="border border-[#241d1f]/30 px-7 py-4 text-center text-[10px] font-bold uppercase tracking-[0.24em] text-[#241d1f] transition hover:border-[#241d1f]">
-                  Explore labels
-                </a>
-              </div>
             </div>
           </div>
 
-          <div className="relative min-h-[460px] overflow-hidden lg:min-h-[760px]">
+          <div className="relative min-h-[320px] overflow-hidden lg:min-h-[560px]">
             <Image
               src="/images/generic-label-assortment-hero.png"
               alt="Assortment of premium generic woven labels, badges, size tabs, and jacquard trims"
               fill
-              sizes="(min-width: 1024px) 55vw, 100vw"
+              sizes="(min-width: 1024px) 40vw, 100vw"
               className="object-cover transition duration-[1600ms] hover:scale-[1.025]"
               priority
             />
@@ -215,7 +254,7 @@ export default function Home() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">What we make</p>
                 <h2 className="mt-3 font-serif text-3xl font-medium leading-tight text-[#241d1f] sm:text-4xl">Product Catalog</h2>
               </div>
-              <p className="max-w-xs text-sm leading-6 text-[#65595c]">Signature details designed to make products memorable.</p>
+              <p className="max-w-xs text-sm leading-6 text-[#65595c]">Signature labels designed to make products memorable.</p>
             </div>
 
             <div className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -381,7 +420,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px]">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Design</p>
-            <h2 className="mt-5 font-serif text-4xl font-medium leading-none tracking-[-0.025em] text-[#241d1f] sm:text-5xl">From idea to final label.</h2>
+            <h2 className="mt-5 font-serif text-4xl font-medium leading-none tracking-[-0.025em] text-[#241d1f] sm:text-5xl">From idea to final label</h2>
             <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[#65595c]">
               Our team of experienced designers is on hand to assist clients in creating captivating label designs
               that effectively communicate their brand message and enhance the visual appeal of their products.
@@ -400,15 +439,6 @@ export default function Home() {
               </article>
             ))}
           </div>
-
-          <div className="mt-12 text-center">
-            <a
-              href="#quote"
-              className="inline-flex bg-[#e9dfd9] px-7 py-4 text-[10px] font-bold uppercase tracking-[0.24em] text-[#241d1f] transition hover:bg-[#f3eee8]"
-            >
-              Begin a custom order
-            </a>
-          </div>
         </div>
       </section>
 
@@ -417,14 +447,14 @@ export default function Home() {
           <div className="flex min-h-[420px] items-center bg-[#e9dfd9] p-8 sm:p-12 lg:min-h-[760px] lg:p-16 xl:p-20">
             <div className="max-w-xl">
               <p className="text-[9px] font-bold uppercase tracking-[0.34em] text-[#6d3745]">Label inquiries</p>
-              <h2 className="mt-6 font-serif text-5xl font-medium leading-[0.92] tracking-[-0.035em] sm:text-6xl lg:text-7xl">Let&apos;s Label.</h2>
+              <h2 className="mt-6 font-serif text-5xl font-medium leading-[0.92] tracking-[-0.035em] sm:text-6xl lg:text-7xl">Let&apos;s Label</h2>
               <p className="mt-8 max-w-md text-sm leading-7 text-[#65595c]">
-                Tell us what you are making and we will guide you through materials, finishes, sampling, and production.
+                .
               </p>
               <div className="mt-12 border-t border-[#241d1f]/15 pt-6">
                 <p className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#6d3745]">Direct correspondence</p>
-                <a href="mailto:hello@sangeethalabel.com" className="mt-3 inline-block text-sm text-[#241d1f] transition hover:text-[#6d3745]">
-                  hello@sangeethalabel.com
+                <a href="mailto:sangeethalabel@gmail.com" className="mt-3 inline-block text-sm text-[#241d1f] transition hover:text-[#6d3745]">
+                  sangeethalabel@gmail.com
                 </a>
               </div>
             </div>
@@ -456,11 +486,12 @@ export default function Home() {
               <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
                 Label Type
                 <select className="border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 focus:border-[#6d3745]">
-                  <option>Damask woven labels</option>
-                  <option>Printed cotton labels</option>
-                  <option>Heat transfer labels</option>
-                  <option>Hang tags</option>
-                  <option>Patches and badges</option>
+                  {categories.map((category) => (
+                    <option key={category.title} value={category.title}>
+                      {category.title}
+                    </option>
+                  ))}
+                  <option value="Other">Other</option>
                 </select>
               </label>
               <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
@@ -514,73 +545,74 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-[#e9dfd9] px-5 py-14 text-[#241d1f]/68 sm:px-8 lg:px-12">
-        <div className="mx-auto grid max-w-7xl gap-10 border-b border-[#241d1f]/10 pb-10 md:grid-cols-2 lg:grid-cols-[1.05fr_0.55fr_0.8fr_1.2fr]">
-          <div>
-            <Image
-              src="/icons/android-chrome-512x512.png"
-              alt="Sangeetha Label"
-              width={220}
-              height={55}
-              className="h-[55px] w-[220px] object-fill"
-            />
-            <p className="mt-4 max-w-md text-sm leading-7">
-              Premium, durable custom clothing labels crafted to elevate your brand.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#241d1f]">Labels</h3>
-            <div className="mt-5 grid gap-3 text-sm">
-              <a href="#categories" className="transition hover:text-[#241d1f]">Woven labels</a>
-              <a href="#categories" className="transition hover:text-[#241d1f]">Printed labels</a>
-              <a href="#categories" className="transition hover:text-[#241d1f]">Heat transfers</a>
-              <a href="#categories" className="transition hover:text-[#241d1f]">Patches</a>
-            </div>
-          </div>
-          <div>
-            <h3 className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#241d1f]">Contact</h3>
-            <div className="mt-5 grid gap-3 text-sm">
-              <address className="not-italic leading-7">
-                Sangeetha Label<br />
-                18 Indira Nagar, Avinashi Road<br />
-                (Near Sales Tax Office)<br />
-                Tirupur – 641603
+      <footer className="bg-[#e9dfd9] px-5 py-16 font-sans text-[#241d1f]/68 sm:px-8 lg:px-12 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto grid max-w-5xl gap-12 border-y border-[#241d1f]/12 py-12 md:grid-cols-[0.85fr_1.15fr] md:items-stretch lg:gap-16 lg:py-16">
+            <div className="flex flex-col justify-center md:pl-6 lg:pl-12">
+              <h2 className="mt-4 font-serif text-3xl font-medium tracking-[-0.02em] text-[#241d1f]">Address</h2>
+              <address className="mt-7 not-italic text-[15px] leading-8 text-[#65595c]">
+                18(1), Indira Nagar, 1st Street<br />
+                Avinashi Road <br />
+                Near Sales Tax Office<br />
+                Tirupur – 641 603
               </address>
-              <a href="tel:+91421474028" className="transition hover:text-[#241d1f]">Phone: 0421 474028</a>
-              <a href="mailto:hello@sangeethalabel.com" className="transition hover:text-[#241d1f]">
-                hello@sangeethalabel.com
-              </a>
+              <div className="mt-7 grid gap-3 text-sm text-[#241d1f]">
+                <a href="tel:+91421474028" className="flex w-fit items-center gap-2.5 transition hover:text-[#6d3745]">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 4.5c0 9.53 7.72 17.25 17.25 17.25h.75a1.5 1.5 0 0 0 1.5-1.5v-2.46a1.5 1.5 0 0 0-1.03-1.42l-3.62-1.21a1.5 1.5 0 0 0-1.71.56l-.91 1.21a1.5 1.5 0 0 1-1.66.51 12.04 12.04 0 0 1-6.26-6.26 1.5 1.5 0 0 1 .51-1.66l1.21-.91a1.5 1.5 0 0 0 .56-1.71L7.63 3.28a1.5 1.5 0 0 0-1.42-1.03H3.75a1.5 1.5 0 0 0-1.5 1.5v.75Z" />
+                  </svg>
+                  <span>0421 474028</span>
+                </a>
+                <a href="mailto:sangeethalabel@gmail.com" className="flex w-fit items-center gap-2.5 transition hover:text-[#6d3745]">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 6.75A2.25 2.25 0 0 1 5.25 4.5h13.5A2.25 2.25 0 0 1 21 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 17.25V6.75Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m3.75 6 7.01 5.26a2.07 2.07 0 0 0 2.48 0L20.25 6" />
+                  </svg>
+                  <span>sangeethalabel@gmail.com</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="md:pl-4">
+              <div className="flex items-end justify-between gap-4">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="shrink-0 text-[8px] font-bold uppercase tracking-[0.2em] text-[#6d3745] transition hover:text-[#241d1f]"
+                >
+                  Open map ↗
+                </a>
+              </div>
+              <div className="mt-6 overflow-hidden bg-[#f3eee8] p-2">
+                <iframe
+                  title="Sangeetha Labels location on Google Maps"
+                  src="https://www.google.com/maps?q=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603&output=embed"
+                  className="h-64 w-full"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
-          <div>
-            <div className="flex items-end justify-between gap-4">
-              <h3 className="text-[9px] font-bold uppercase tracking-[0.28em] text-[#241d1f]">Location</h3>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603"
-                target="_blank"
-                rel="noreferrer"
-                className="text-[8px] font-bold uppercase tracking-[0.2em] text-[#6d3745] transition hover:text-[#241d1f]"
-              >
-                Open map ↗
-              </a>
-            </div>
-            <div className="mt-5 overflow-hidden border border-[#241d1f]/15 bg-[#f3eee8] p-2">
-              <iframe
-                title="Sangeetha Labels location on Google Maps"
-                src="https://www.google.com/maps?q=18%20Indira%20Nagar%2C%20Avinashi%20Road%2C%20Tirupur%20641603&output=embed"
-                className="h-52 w-full grayscale transition duration-500 hover:grayscale-0 lg:h-44"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
+
+          <div className="flex flex-col items-center pt-12 text-center">
+            <a href="#" aria-label="Back to the top of Sangeetha Labels">
+              <Image
+                src="/icons/android-chrome-512x512.png"
+                alt="Sangeetha Label"
+                width={280}
+                height={70}
+                className="h-[70px] w-[280px] object-fill"
               />
-            </div>
+            </a>
           </div>
-        </div>
-        <div className="mx-auto mt-8 flex max-w-7xl flex-col justify-between gap-4 text-xs sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} Sangeetha Labels. All rights reserved.</p>
-          <div className="flex gap-5">
-            <a href="#" className="transition hover:text-[#241d1f]">Privacy</a>
-            <a href="#" className="transition hover:text-[#241d1f]">Terms</a>
+
+          <div className="mx-auto mt-12 flex max-w-5xl justify-center border-t border-[#241d1f]/12 pt-8">
+            <p className="text-center text-[9px] font-light uppercase tracking-[0.4em] text-[#65595c]/60 md:text-[11px] md:tracking-[0.8em]">
+              &copy; 2026 Sangeetha Label. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
