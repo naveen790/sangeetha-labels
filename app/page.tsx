@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 
 type Category = {
@@ -25,7 +25,7 @@ const categories: Category[] = [
     title: "Woven Labels",
     eyebrow: "Fine thread detail",
     description: "Soft-touch woven labels with sharp artwork, clean folds, and premium color depth.",
-    image: "/images/damask-woven-label.png",
+    image: "/images/label1.png",
   },
   {
     title: "Printed Labels",
@@ -43,13 +43,13 @@ const categories: Category[] = [
     title: "Woven Badges",
     eyebrow: "Dimensional branding",
     description: "Woven, embroidered, silicone, and leather-look badges for signature collections.",
-    image: "/images/patches-and-badges.png",
+    image: "/images/patches.png",
   },
   {
     title: "Embroidered Badges & Labels",
     eyebrow: "Sculpted threadwork",
     description: "Raised embroidery gives logos and emblems rich texture and depth.",
-    image: "/images/stock-black-damask-labels.png",
+    image: "/images/patch2.png",
   },
   {
     title: "Laser-Cut Labels",
@@ -115,7 +115,7 @@ const steps: Step[] = [
 ];
 
 const industries: Industry[] = [
-  { name: "Apparel and Fashion", image: "/images/generic-label-assortment-hero.png" },
+  { name: "Apparel and Fashion", image: "/images/apparel-fashion-collage.png" },
   { name: "Footwear and Shoes", image: "/images/patches-and-badges.png" },
   { name: "Home Textiles", image: "/images/printed-cotton-labels.png" },
   { name: "Luggage and Bags", image: "/images/quality-label-sample-board.png" },
@@ -124,10 +124,55 @@ const industries: Industry[] = [
   { name: "Boutiques and Brands", image: "/images/quote-clothing-label-collage.png" },
 ];
 
+const infrastructure = [
+  {
+    title: "Woven Jacquard looms",
+    eyebrow: "Latest Machines",
+    description:
+      "",
+    image: "/images/machine/woven-jacquard-looms-professional.png",
+    alt: "Rows of woven Jacquard looms on the Sangeetha Labels production floor",
+  },
+  {
+    title: "Cutting and folding",
+    eyebrow: "Precision finishing",
+    description:
+      "",
+    image: "/images/machine/cutting-folding-professional.png",
+    alt: "Operator working with an industrial label cutting and folding machine",
+  },
+  {
+    title: "Embroidery machines",
+    eyebrow: "100-head capacity",
+    description:
+      "",
+    image: "/images/machine/embroidery-machines-professional.png",
+    alt: "Close view of precision textile machinery and colorful threadwork",
+  },
+];
+
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
   const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+
+  useEffect(() => {
+    if (!selectedCategory) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedCategory(null);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedCategory]);
 
   const handleSubmitQuote = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -152,17 +197,17 @@ export default function Home() {
             />
           </a>
 
-          <div className="hidden items-center gap-9 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#65595c] md:flex">
-            <a href="#categories" className="transition hover:text-[#241d1f]">
+          <div className="hidden items-center gap-9 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#65595c] md:flex">
+            <a href="#categories" className="relative py-2 transition duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#6d3745] after:transition-transform after:duration-300 hover:text-[#6d3745] hover:after:scale-x-100">
               Labels
             </a>
-            <a href="#about" className="transition hover:text-[#241d1f]">
+            <a href="#about" className="relative py-2 transition duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#6d3745] after:transition-transform after:duration-300 hover:text-[#6d3745] hover:after:scale-x-100">
               About
             </a>
-            <a href="#process" className="transition hover:text-[#241d1f]">
+            <a href="#process" className="relative py-2 transition duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#6d3745] after:transition-transform after:duration-300 hover:text-[#6d3745] hover:after:scale-x-100">
               Process
             </a>
-            <a href="#quote" className="border border-[#241d1f]/25 px-5 py-3 transition hover:bg-[#e9dfd9]">
+            <a href="#quote" className="relative py-2 transition duration-300 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#6d3745] after:transition-transform after:duration-300 hover:text-[#6d3745] hover:after:scale-x-100">
               Contact
             </a>
           </div>
@@ -185,17 +230,17 @@ export default function Home() {
 
         {mobileMenuOpen && (
           <div className="border-t border-[#241d1f]/10 bg-[#f3eee8] px-5 py-5 md:hidden">
-            <div className="mx-auto grid max-w-7xl gap-2 text-sm font-medium text-[#241d1f]">
-              <a onClick={closeMenu} href="#categories" className="py-3">
+            <div className="mx-auto grid max-w-7xl gap-2 text-[15px] font-medium text-[#241d1f]">
+              <a onClick={closeMenu} href="#categories" className="w-fit border-b border-transparent py-3 transition hover:border-[#6d3745] hover:text-[#6d3745]">
                 Labels
               </a>
-              <a onClick={closeMenu} href="#about" className="py-3">
+              <a onClick={closeMenu} href="#about" className="w-fit border-b border-transparent py-3 transition hover:border-[#6d3745] hover:text-[#6d3745]">
                 About
               </a>
-              <a onClick={closeMenu} href="#process" className="py-3">
+              <a onClick={closeMenu} href="#process" className="w-fit border-b border-transparent py-3 transition hover:border-[#6d3745] hover:text-[#6d3745]">
                 Process
               </a>
-              <a onClick={closeMenu} href="#quote" className="py-3">
+              <a onClick={closeMenu} href="#quote" className="w-fit border-b border-transparent py-3 transition hover:border-[#6d3745] hover:text-[#6d3745]">
                 Contact
               </a>
             </div>
@@ -260,7 +305,12 @@ export default function Home() {
             <div className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
               {categories.map((category) => (
                 <article key={category.title} className="group">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#e9dfd9]">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory(category)}
+                    className="relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden bg-[#e9dfd9] text-left focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6d3745]"
+                    aria-label={`Enlarge ${category.title} image`}
+                  >
                     <Image
                       src={category.image}
                       alt={category.title}
@@ -269,7 +319,10 @@ export default function Home() {
                       className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
                       loading="lazy"
                     />
-                  </div>
+                    <span className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border border-[#f3eee8]/60 bg-[#241d1f]/45 text-lg text-[#f3eee8] opacity-0 backdrop-blur-sm transition duration-300 group-hover:opacity-100 group-focus-within:opacity-100" aria-hidden="true">
+                      +
+                    </span>
+                  </button>
                   <div className="pt-5">
                     <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">{category.eyebrow}</p>
                     <h3 className="mt-2 font-serif text-xl font-medium text-[#241d1f]">{category.title}</h3>
@@ -287,7 +340,6 @@ export default function Home() {
                 <h3 className="mt-4 font-serif text-3xl font-medium leading-tight sm:text-4xl">Industries we cater to</h3>
               </div>
               <p className="max-w-sm text-sm leading-7 text-[#65595c]">
-                Flexible label solutions developed around the material, finish, and performance needs of each market.
               </p>
             </div>
 
@@ -349,38 +401,50 @@ export default function Home() {
                     <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-[#f3eee8]/75">Selected industry</p>
                     <p className="mt-3 font-serif text-2xl font-medium sm:text-3xl">{industries[activeIndustryIndex].name}</p>
                   </div>
-                  <span className="hidden h-12 w-12 items-center justify-center rounded-full border border-[#f3eee8]/45 text-lg sm:flex" aria-hidden="true">
-                    ↗
-                  </span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 bg-[#f3eee8] p-8 text-[#241d1f] sm:p-12 lg:p-14">
-            <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">Infrastructure</p>
-            <div className="mt-10 grid gap-10 md:grid-cols-3">
+          <div className="mt-6 overflow-hidden border border-[#241d1f]/10 bg-[#e9dfd9] text-[#241d1f]">
+            <div className="flex flex-col justify-between gap-6 px-8 py-10 sm:flex-row sm:items-end sm:px-12 lg:px-14 lg:py-12">
               <div>
-                <h3 className="font-serif text-xl font-medium">Woven Jacquard looms</h3>
-                <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
-                  Our woven Jacquard looms are imported from Switzerland and Italy. Their latest technology
-                  delivers the sharp, fine finish brands require, with a capacity of 500,000 pieces per day.
-                </p>
+                <p className="text-[9px] font-bold uppercase tracking-[0.32em] text-[#6d3745]">Infrastructure</p>
+                <h2 className="mt-4 max-w-2xl font-serif text-3xl font-medium leading-tight sm:text-4xl">
+                  Precision at every stage of production
+                </h2>
               </div>
-              <div>
-                <h3 className="font-serif text-xl font-medium">Cutting and folding</h3>
-                <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
-                  Our latest Japanese cutting and folding machines are housed in-house to deliver precise cutting
-                  and finishing that meets each customer&apos;s requirements.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-serif text-xl font-medium">Embroidery machines</h3>
-                <p className="mt-4 text-sm leading-7 text-[#241d1f]/65">
-                  Our in-house Japanese embroidery machines have a total of 100 heads, providing the production
-                  capacity needed to meet customer requirements.
-                </p>
-              </div>
+            </div>
+
+            <div className="grid gap-6 border-t border-[#241d1f]/12 p-6 sm:p-8 md:grid-cols-3 lg:gap-8 lg:p-10">
+              {infrastructure.map((item, index) => (
+                <article
+                  key={item.title}
+                  className="group overflow-hidden border border-[#241d1f]/10 bg-[#f3eee8] transition duration-500 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(36,29,31,0.10)]"
+                >
+                  <div className="p-3 pb-0 sm:p-4 sm:pb-0">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#e9dfd9]">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 33vw, 100vw"
+                      className="object-cover transition duration-700 ease-out group-hover:scale-[1.035]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#241d1f]/50 via-transparent to-transparent" />
+                    <span className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center border border-[#f3eee8]/40 bg-[#241d1f]/30 font-serif text-sm backdrop-blur-sm">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    </div>
+                  </div>
+                  <div className="p-7 sm:p-8 lg:p-7 xl:p-8">
+                    <p className="text-[8px] font-bold uppercase tracking-[0.26em] text-[#6d3745]">{item.eyebrow}</p>
+                    <h3 className="mt-3 font-serif text-2xl font-medium">{item.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#65595c]">{item.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
 
@@ -460,32 +524,35 @@ export default function Home() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmitQuote} className="grid content-center gap-7 bg-[#f3eee8] p-7 text-[#241d1f] sm:p-12 lg:p-16 xl:p-20">
-            <div className="grid gap-7 sm:grid-cols-2">
-              <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+          <form
+            onSubmit={handleSubmitQuote}
+            className="relative grid content-center gap-9 border-t border-[#241d1f]/10 bg-[#f3eee8] p-7 text-[#241d1f] shadow-[inset_0_1px_0_rgba(255,255,255,0.35)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[#6d3745]/35 sm:p-12 lg:border-l lg:border-t-0 lg:p-16 xl:gap-10 xl:p-20"
+          >
+            <div className="grid gap-8 sm:grid-cols-2 sm:gap-x-12">
+              <label className="group grid gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
                 Full name
                 <input
                   required
                   type="text"
-                  className="border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/55 focus:border-[#6d3745]"
+                  className="border-0 border-b border-[#241d1f]/18 bg-transparent px-0 py-4 text-[15px] font-light normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/50 hover:border-[#241d1f]/40 focus:border-[#6d3745] focus:placeholder:opacity-30"
                   placeholder="Your full name"
                 />
               </label>
-              <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+              <label className="group grid gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
                 Work email
                 <input
                   required
                   type="email"
-                  className="border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/55 focus:border-[#6d3745]"
+                  className="border-0 border-b border-[#241d1f]/18 bg-transparent px-0 py-4 text-[15px] font-light normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/50 hover:border-[#241d1f]/40 focus:border-[#6d3745] focus:placeholder:opacity-30"
                   placeholder="you@brand.com"
                 />
               </label>
             </div>
 
-            <div className="grid gap-7 sm:grid-cols-2">
-              <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+            <div className="grid gap-8 sm:grid-cols-2 sm:gap-x-12">
+              <label className="group grid gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
                 Label Type
-                <select className="border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 focus:border-[#6d3745]">
+                <select className="cursor-pointer border-0 border-b border-[#241d1f]/18 bg-transparent px-0 py-4 text-[15px] font-light normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 hover:border-[#241d1f]/40 focus:border-[#6d3745]">
                   {categories.map((category) => (
                     <option key={category.title} value={category.title}>
                       {category.title}
@@ -494,35 +561,35 @@ export default function Home() {
                   <option value="Other">Other</option>
                 </select>
               </label>
-              <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+              <label className="group grid gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
                 Quantity
                 <input
                   type="number"
                   min="100"
-                  className="border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/55 focus:border-[#6d3745]"
+                  className="border-0 border-b border-[#241d1f]/18 bg-transparent px-0 py-4 text-[15px] font-light normal-case tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/50 hover:border-[#241d1f]/40 focus:border-[#6d3745] focus:placeholder:opacity-30"
                   placeholder="Minimum 100 pcs"
                 />
               </label>
             </div>
 
-            <label className="grid gap-1 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+            <label className="group grid gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
               Project Details
               <textarea
                 rows={4}
-                className="resize-none border-0 border-b border-[#241d1f]/20 bg-transparent px-0 py-4 text-[15px] font-normal normal-case leading-7 tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/55 focus:border-[#6d3745]"
+                className="resize-none border-0 border-b border-[#241d1f]/18 bg-transparent px-0 py-4 text-[15px] font-light normal-case leading-7 tracking-normal text-[#241d1f] outline-none transition duration-300 placeholder:text-[#65595c]/50 hover:border-[#241d1f]/40 focus:border-[#6d3745] focus:placeholder:opacity-30"
                 placeholder="Artwork, dimensions, folds, material, backing, delivery date..."
               />
             </label>
 
-            <label className="grid gap-3 text-[9px] font-bold uppercase tracking-[0.22em] text-[#6d3745]">
+            <label className="grid gap-3 text-[9px] font-bold uppercase tracking-[0.3em] text-[#6d3745]">
               Upload artwork or reference image
-              <span className="border border-dashed border-[#241d1f]/25 bg-[#e9dfd9] p-5 transition duration-300 hover:border-[#6d3745]">
+              <span className="border border-dashed border-[#241d1f]/20 bg-[#e9dfd9]/65 p-6 shadow-[inset_0_0_0_1px_rgba(243,238,232,0.45)] transition duration-300 hover:border-[#6d3745] hover:bg-[#e9dfd9]">
                 <input
                   type="file"
                   accept="image/png,image/jpeg,image/webp,image/svg+xml"
-                  className="block w-full cursor-pointer text-xs font-normal normal-case tracking-normal text-[#65595c] file:mr-4 file:cursor-pointer file:border-0 file:bg-[#f3eee8] file:px-4 file:py-3 file:text-[9px] file:font-semibold file:uppercase file:tracking-[0.18em] file:text-[#241d1f]"
+                  className="block w-full cursor-pointer text-xs font-light normal-case tracking-normal text-[#65595c] file:mr-5 file:cursor-pointer file:border file:border-[#241d1f]/15 file:bg-[#f3eee8] file:px-5 file:py-3.5 file:text-[9px] file:font-semibold file:uppercase file:tracking-[0.2em] file:text-[#241d1f]"
                 />
-                <span className="mt-3 block text-[10px] font-normal normal-case leading-5 tracking-normal text-[#65595c]">
+                <span className="mt-4 block text-[10px] font-light normal-case leading-5 tracking-normal text-[#65595c]">
                   PNG, JPG, WEBP, or SVG
                 </span>
               </span>
@@ -530,15 +597,15 @@ export default function Home() {
 
             <button
               type="submit"
-              className="group mt-2 flex items-center justify-between border border-[#241d1f]/20 bg-[#e9dfd9] px-6 py-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#241d1f] transition duration-300 hover:bg-[#f3eee8]"
+              className="group mt-1 flex items-center justify-between border border-[#241d1f] bg-[#241d1f] px-7 py-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#f3eee8] shadow-[0_14px_34px_rgba(36,29,31,0.18)] transition duration-300 hover:-translate-y-0.5 hover:border-[#6d3745] hover:bg-[#6d3745] hover:shadow-[0_20px_42px_rgba(36,29,31,0.24)]"
             >
-              <span>Send quote request</span>
-              <span className="text-lg transition duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+              <span>Send inquiry</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[#f3eee8]/35 text-base transition duration-300 group-hover:translate-x-1 group-hover:border-[#f3eee8]/65" aria-hidden="true">→</span>
             </button>
 
             {quoteSubmitted && (
-              <div className="border border-[#241d1f]/25 bg-[#f3eee8] px-4 py-3 text-center text-sm font-semibold text-[#241d1f]">
-                Quote request received. We will follow up with the next production steps.
+              <div className="border border-[#241d1f]/20 bg-[#e9dfd9]/60 px-5 py-4 text-center text-sm font-medium text-[#241d1f] shadow-[inset_3px_0_0_#6d3745]">
+                Inquiry received. We will follow up with the next production steps.
               </div>
             )}
           </form>
@@ -616,6 +683,47 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {selectedCategory && (
+        <div
+          className="fixed inset-0 z-[100] flex cursor-zoom-out items-center justify-center bg-[#241d1f]/85 p-4 backdrop-blur-sm sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedCategory.title} enlarged image`}
+          onClick={() => setSelectedCategory(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl cursor-default border border-[#f3eee8]/20 bg-[#f3eee8] p-3 shadow-[0_30px_100px_rgba(0,0,0,0.45)] sm:p-4"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setSelectedCategory(null)}
+              className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-[#f3eee8]/60 bg-[#241d1f]/70 text-2xl font-light text-[#f3eee8] backdrop-blur-md transition hover:bg-[#6d3745] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f3eee8]"
+              aria-label="Close enlarged image"
+            >
+              ×
+            </button>
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#e9dfd9]">
+              <Image
+                src={selectedCategory.image}
+                alt={selectedCategory.title}
+                fill
+                sizes="(min-width: 1024px) 960px, 95vw"
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="flex items-center justify-between gap-4 px-2 pb-2 pt-5 sm:px-3">
+              <div>
+                <p className="text-[8px] font-bold uppercase tracking-[0.26em] text-[#6d3745]">{selectedCategory.eyebrow}</p>
+                <p className="mt-1 font-serif text-2xl font-medium text-[#241d1f]">{selectedCategory.title}</p>
+              </div>
+              <p className="hidden text-[9px] uppercase tracking-[0.2em] text-[#65595c] sm:block">Press Esc to close</p>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
